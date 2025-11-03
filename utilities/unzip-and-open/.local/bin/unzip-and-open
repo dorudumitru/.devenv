@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+pararser() {
+  # Define default values
+  zip=${zip:-""}
+  path=${path:-""}
+  ide=${ide:-""}
+  rename=${rename:-""}
+
+  # Assign the values given by the user
+  while [ $# -gt 0 ]; do
+    if [[ $1 == "--help" ]]; then
+      echo " Usage:"
+      echo "   --zip              zip file path (required | ex: ~/Downloads/random-folder/myzip.zip)"
+      echo "   --path             project path (optional | ex: ~/Projects/ibm | default: ~/Projects/playground/java)"
+      echo "   --ide              open project in IDE (optional | value: code / idea / tmux | default: tmux)"
+      echo "   --rename           rename project (optional | if specified, will rename the app folder to param value)"
+      exit
+    elif [[ $1 == *"--"* ]]; then
+      param="${1/--/}"
+      declare -g "$param"="$2"
+    fi
+    shift
+  done
+
+}
+
+pararser "$@"
+
+if [[ $zip == "" ]]; then
+  echo "param --zip is required"
+  exit
+fi
+
+if [[ $path == "" ]]; then
+  path=~/Projects/playground/java
+fi
+
+bname="$(basename -- "$zip")"
+projectName=${bname%.*}
+fullProjectPath=$path/$projectName
+
+mkdir -p "$fullProjectPath" || {
+  exit 1
+}
+
+unzip "$zip" -d "$path" || {
+  exit 1
+}
+
+rm "$zip" || {
+  exit 1
+}
+
+if [[ $rename != "" ]]; then
+  mv "$fullProjectPath" "$path"/"$rename" || {
+    exit 1
+  }
+  fullProjectPath=$path/$rename
+fi
+
+function idea() {
+  intellij "$1" >/dev/null 2>&1 &
+}
+
+if [[ $ide == "idea" ]]; then
+  idea "$fullProjectPath" || {
+    exit 1
+  }
+elif [[ $ide == "code" ]]; then
+  code "$fullProjectPath" || {
+    exit 1
+  }
+else
+  tmux-sessionizer "$fullProjectPath" || {
+    exit 1
+  }
+fi

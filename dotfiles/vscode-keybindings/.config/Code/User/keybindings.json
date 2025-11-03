@@ -1,0 +1,55 @@
+[
+  {
+    "command": "-vscode-neovim.send",
+    "key": "ctrl+d"
+  },
+  {
+    "key": "ctrl+/",
+    "command": "-vscode-neovim.send"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "-workbench.view.debug",
+    "when": "viewContainer.workbench.view.debug.enabled"
+  },
+  {
+    "command": "vscode-neovim.send",
+    "key": "alt+j",
+    "when": "editorTextFocus && neovim.init",
+    "args": "<A-j>"
+  },
+  {
+    "command": "vscode-neovim.send",
+    "key": "alt+k",
+    "when": "editorTextFocus && neovim.init",
+    "args": "<A-k>"
+  },
+  {
+    "command": "vscode-neovim.send",
+    "key": "ctrl+d",
+    "when": "editorTextFocus && neovim.init && neovim.mode == normal",
+    "args": "<C-d>"
+  },
+  {
+    "command": "vscode-neovim.send",
+    "key": "ctrl+u",
+    "when": "editorTextFocus && neovim.init && neovim.mode == normal",
+    "args": "<C-u>"
+  },
+  {
+    "command": "vscode-neovim.send",
+    "key": "ctrl+shift+d",
+    "when": "editorFocus && neovim.init",
+    "args": "<C-D>"
+  },
+  {
+    "key": "space e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "explorerViewletFocus"
+  },
+  {
+    "key": "ctrl+m",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminalFocus"
+  }
+]
