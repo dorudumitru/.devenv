@@ -24,6 +24,21 @@ function tmux-ssh() {
   ssh "$1" -t -- /bin/sh -c 'tmux has-session && exec tmux attach || exec tmux'
 }
 
+function git-ssh() {
+  if [[ "$1" == "work" ]]; then
+    git config core.sshCommand "ssh -i $HOME/.ssh/work.pub"
+    echo "Successfully configured \"Work\" ssh key for current repository"
+  elif [[ "$1" == "hh" ]]; then
+    git config core.sshCommand "ssh -i $HOME/.ssh/hh_enterprise.pub"
+    echo "Successfully configured \"HH Enterprise\" ssh key for current repository"
+  elif [[ "$1" == "personal" ]]; then
+    git config core.sshCommand "ssh -i $HOME/.ssh/personal.pub"
+    echo "Successfully configured \"Personal\" ssh key for current repository"
+  else
+    echo "Argument required: work | hh | personal"
+  fi
+}
+
 function visualvm {
   ( /opt/visualvm*/bin/visualvm --fontsize 20 "$@" & ) > /dev/null 2>&1
 }
@@ -31,6 +46,8 @@ function visualvm {
 # aliases
 alias ls='eza --icons=auto --group-directories-first'
 alias cd='z'
+alias cat='bat'
+alias grep='rg'
 alias vim='nvim'
 alias ts='tmux-sessionizer'
 alias ngp='new-go-project'
@@ -65,7 +82,7 @@ export NVM_DIR="$HOME/.nvm"
 # go
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/usr/local/go/bin # no need to set this if go is installed with dnf
+export PATH=$PATH:/usr/local/go/bin
 
 # .NET
 export DOTNET_ROOT=$HOME/.dotnet
@@ -86,7 +103,8 @@ esac
 # opencode
 export PATH=$HOME/.opencode/bin:$PATH
 
-# fzf - Catppuccin theme
+# fzf
+source <(fzf --zsh)
 export FZF_DEFAULT_OPTS=" \
 --prompt '❯ '
 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
@@ -94,11 +112,3 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
 --color=selected-bg:#494d64 \
 --color=border:#8aadf4,label:#cad3f5"
-
-# fzf - One Dark theme
-# export FZF_DEFAULT_OPTS=" \
-#   --prompt '❯ ' \
-#   --color=bg+:#282C34,border:#98C379,info:#E5C07B,pointer:#E06C75"
-
-source /usr/share/fzf/shell/key-bindings.zsh
-

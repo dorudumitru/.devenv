@@ -11,6 +11,10 @@ for dir in */; do # list directories in the form "dirname/"
       deferred+=("$dir")
       continue
     fi
+  elif [ "$dir" == "gitconfig" ]; then
+    rm "$HOME/.gitconfig"
+    stow -t "$HOME" "${dir##*/}"
+    continue
   elif [ "$dir" == "zsh" ]; then
     rm "$HOME/.zshrc"
     stow -t "$HOME" "${dir##*/}"
@@ -35,6 +39,9 @@ for dir in */; do # list directories in the form "dirname/"
     rm -rf "$HOME/Documents/Go"
     stow -t "$HOME" "${dir##*/}"
     continue
+  elif [ "$dir" == "sdkman" ]; then
+    rm "$HOME"/.sdkman/etc/config
+    stow -t "$HOME" "${dir##*/}"
   fi
 
   rm -rf "$HOME"/.config/"${dir##*/}"
