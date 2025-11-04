@@ -10,3 +10,5 @@ cd "$neovim_dir" || exit
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 rm -rf "$neovim_dir"
+
+cargo install --locked tree-sitter-cli
