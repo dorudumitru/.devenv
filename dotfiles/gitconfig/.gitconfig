@@ -15,3 +15,12 @@
   line-numbers = true
   features = catppuccin-macchiato
 
+[merge]
+  tool = nvimdiff
+
+[mergetool]
+  keepBackup = false
+  prompt = true
+
+[mergetool "nvimdiff"]
+  layout = "LOCAL,BASE,REMOTE / MERGED"

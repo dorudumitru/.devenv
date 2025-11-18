@@ -1,5 +1,6 @@
 export GIT_EDITOR=nvim
 export EDITOR=nvim
+export MANPAGER="nvim +Man!"
 export PATH=$PATH:$HOME/.local/bin
 export ZSH="$HOME/.oh-my-zsh"
 export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
@@ -45,7 +46,6 @@ function visualvm {
 
 # aliases
 alias ls='eza --icons=auto --group-directories-first'
-alias cd='z'
 alias cat='bat'
 alias grep='rg'
 alias vim='nvim'
@@ -72,7 +72,7 @@ autoload -Uz compinit && compinit
 eval "$(starship init zsh)"
 
 # zoxide
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -113,3 +113,5 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#494d64 \
 --color=border:#8aadf4,label:#cad3f5"
 
+# angular
+source <(ng completion script)

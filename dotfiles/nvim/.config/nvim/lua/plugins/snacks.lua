@@ -10,7 +10,7 @@ return {
           auto_close = true,
           hidden = true,
           ignored = true,
-          exclude = { "node_modules", ".git", ".next" },
+          exclude = { ".git" },
         },
       },
     },

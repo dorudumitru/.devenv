@@ -5,8 +5,8 @@
 vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste over without copy to register" })
 vim.keymap.set("v", "<leader>d", '"_d', { desc = "Delete without copy to register" })
 
-vim.keymap.set("v", "<leader>y", '"+y', { desc = "Copy to clipboard" })
-vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "Copy to clipboard" })
+vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to clipboard" })
+vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "Yank to clipboard" })
 
 vim.keymap.set("n", "<leader>xf", "<cmd>!chmod +x %<CR>", { desc = "Make file executable" })
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "Open tmux-sessionizer from vim" })
