@@ -199,5 +199,6 @@
   },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
-  }
+  },
+  "sonarlint.automaticAnalysis": true
 }

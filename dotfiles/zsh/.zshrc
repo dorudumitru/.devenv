@@ -3,7 +3,7 @@ export EDITOR=nvim
 export MANPAGER="nvim +Man!"
 export PATH=$PATH:$HOME/.local/bin
 export ZSH="$HOME/.oh-my-zsh"
-export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
+export SSH_AUTH_SOCK=$HOME/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
 
 ZSH_THEME="robbyrussell"
 ZSH_DISABLE_COMPFIX=true

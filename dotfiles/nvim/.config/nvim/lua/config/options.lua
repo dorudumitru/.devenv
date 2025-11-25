@@ -13,6 +13,7 @@ vim.opt.scrolloff = 8
 vim.opt.clipboard = ""
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = ""
+vim.opt.formatoptions = "jcrqlnt"
 
 vim.filetype.add({
   -- Detect and assign filetype based on the extension of the filename
