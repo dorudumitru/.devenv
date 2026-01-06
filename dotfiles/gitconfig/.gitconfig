@@ -24,3 +24,7 @@
 
 [mergetool "nvimdiff"]
   layout = "LOCAL,BASE,REMOTE / MERGED"
+
+[user]
+	email = doru.dumitru@hartehanks.com
+	name = Doru Dumitru

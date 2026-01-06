@@ -12,6 +12,7 @@ return {
           vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjs.jar"),
           vim.fn.expand("$MASON/share/sonarlint-analyzers/sonargo.jar"),
           vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjava.jar"),
+          vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjavasymbolicexecution.jar"),
         },
       },
       filetypes = {

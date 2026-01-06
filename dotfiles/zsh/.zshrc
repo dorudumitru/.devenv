@@ -56,8 +56,9 @@ alias tssh='tmux-ssh'
 alias lg='lazygit'
 alias fp='. project-finder'
 alias cato='cato-sdp'
-alias oc='opencode'
 alias yz='yazi'
+alias oc='opencode'
+alias cc='claude'
 
 # open tmux sessionizer with <C-f>
 bindkey -s "^f" "ts\n"
@@ -112,6 +113,3 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
 --color=selected-bg:#494d64 \
 --color=border:#8aadf4,label:#cad3f5"
-
-# angular
-source <(ng completion script)
