@@ -1,3 +1,10 @@
+# OPENSPEC:START
+# OpenSpec shell completions configuration
+fpath=("/home/dorudumitru/.oh-my-zsh/custom/completions" $fpath)
+autoload -Uz compinit
+compinit
+# OPENSPEC:END
+
 export GIT_EDITOR=nvim
 export EDITOR=nvim
 export MANPAGER="nvim +Man!"

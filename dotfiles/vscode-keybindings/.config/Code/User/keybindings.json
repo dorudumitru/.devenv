@@ -1,55 +1,244 @@
 [
+  // Navigation
   {
-    "command": "-vscode-neovim.send",
-    "key": "ctrl+d"
+    "key": "ctrl-h",
+    "command": "workbench.action.navigateLeft"
   },
   {
-    "key": "ctrl+/",
-    "command": "-vscode-neovim.send"
+    "key": "ctrl-j",
+    "command": "workbench.action.navigateDown"
   },
   {
-    "key": "ctrl+shift+d",
-    "command": "-workbench.view.debug",
-    "when": "viewContainer.workbench.view.debug.enabled"
+    "key": "ctrl-k",
+    "command": "workbench.action.navigateUp"
   },
   {
-    "command": "vscode-neovim.send",
-    "key": "alt+j",
-    "when": "editorTextFocus && neovim.init",
-    "args": "<A-j>"
+    "key": "ctrl-l",
+    "command": "workbench.action.navigateRight"
   },
   {
-    "command": "vscode-neovim.send",
-    "key": "alt+k",
-    "when": "editorTextFocus && neovim.init",
-    "args": "<A-k>"
-  },
-  {
-    "command": "vscode-neovim.send",
-    "key": "ctrl+d",
-    "when": "editorTextFocus && neovim.init && neovim.mode == normal",
-    "args": "<C-d>"
-  },
-  {
-    "command": "vscode-neovim.send",
-    "key": "ctrl+u",
-    "when": "editorTextFocus && neovim.init && neovim.mode == normal",
-    "args": "<C-u>"
-  },
-  {
-    "command": "vscode-neovim.send",
-    "key": "ctrl+shift+d",
-    "when": "editorFocus && neovim.init",
-    "args": "<C-D>"
+    "key": "space ,",
+    "command": "workbench.action.showAllEditors",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
     "key": "space e",
-    "command": "workbench.action.toggleSidebarVisibility",
-    "when": "explorerViewletFocus"
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.files.action.focusFilesExplorer"
+      ]
+    },
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !sideBarFocus"
+  },
+  {
+    "key": "space e",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.action.focusActiveEditorGroup"
+      ]
+    },
+    "when": "sideBarFocus && !inputFocus"
+  },
+  {
+    "key": "shift-l",
+    "command": "workbench.action.nextEditorInGroup",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "shift-h",
+    "command": "workbench.action.previousEditorInGroup",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+  },
+
+  {
+    "key": "space shift+\\",
+    "command": "workbench.action.splitEditor",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space -",
+    "command": "workbench.action.splitEditorDown",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "escape",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "!editorFocus"
+  },
+  {
+    "key": "space a a",
+    "command": "workbench.action.chat.toggle",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+
+  // Coding
+  {
+    "key": "ctrl+s",
+    "command": "runCommands",
+    "when": "vim.mode != 'Normal' && editorTextFocus",
+    "args": {
+      "commands": ["workbench.action.files.save", "extension.vim_escape"]
+    }
   },
   {
     "key": "ctrl+m",
     "command": "workbench.action.toggleMaximizedPanel",
     "when": "terminalFocus"
+  },
+  {
+    "key": "alt-k",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "vim.mode != 'Insert' && editorTextFocus"
+  },
+  {
+    "key": "alt+j",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "vim.mode != 'Insert' && editorTextFocus"
+  },
+  {
+    "key": "shift-k",
+    "command": "editor.action.showHover",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space c a",
+    "command": "editor.action.codeAction",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space c r",
+    "command": "editor.action.rename",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space c s",
+    "command": "workbench.action.gotoSymbol",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space b d",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space b o",
+    "command": "workbench.action.closeOtherEditors",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space space",
+    "command": "workbench.action.quickOpen",    
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space g r",
+    "command": "editor.action.goToReferences",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g i",
+    "command": "editor.action.goToImplementation",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space s r",
+    "command": "workbench.action.replaceInFiles",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space g g",
+    "command": "runCommands",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)",
+    "args": {
+      "commands": ["workbench.view.scm", "workbench.scm.focus"]
+    }
+  },
+  {
+    "key": "space g s",
+    "command": "git.sync",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "] d",
+    "command": "editor.action.marker.next",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "[ d",
+    "command": "editor.action.marker.prev",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+
+  // File Explorer
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "y",
+    "command": "filesExplorer.copy",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "x",
+    "command": "filesExplorer.cut",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "s",
+    "command": "explorer.openToSide",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+
+  // Debug
+  {
+    "key": "space d a",
+    "command": "workbench.action.debug.selectandstart",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && debuggersAvailable"
+  },
+  {
+    "key": "space d t",
+    "command": "workbench.action.debug.stop",
+    "when": "vim.mode == 'Normal' && editorTextFocus && inDebugMode && !focusedSessionIsAttached"
+  },
+  {
+    "key": "space d o",
+    "command": "workbench.action.debug.stepOver",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && inDebugMode && debugState == 'stopped'"
+  },
+  {
+    "key": "space d b",
+    "command": "editor.debug.action.toggleBreakpoint",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space d e",
+    "command": "editor.debug.action.showDebugHover",
+    "when": "vim.mode == 'Normal' && editorTextFocus && inDebugMode && debugState == 'stopped'"
+  },
+  {
+    "key": "space d c",
+    "command": "workbench.action.debug.continue",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && inDebugMode && debugState == 'stopped'"
   }
 ]

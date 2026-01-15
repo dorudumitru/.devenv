@@ -6,15 +6,12 @@
   "workbench.colorTheme": "Catppuccin Macchiato",
   "workbench.iconTheme": "symbols",
   "window.titleBarStyle": "custom",
-  "window.commandCenter": false,
-  "workbench.editor.showTabs": "multiple",
   "workbench.tree.indent": 12,
   "catppuccin.accentColor": "rosewater",
   "symbols.hidesExplorerArrows": false,
 
   // FONT
-  "editor.fontFamily": "MonoLisa Variable, JetBrains Mono Medium, JetBrainsMono NF Medium",
-  "editor.fontWeight": "500",
+  "editor.fontFamily": "MonoLisa Medium, JetBrains Mono Medium, Symbols Nerd Font",
   "editor.fontSize": 14,
   "editor.lineHeight": 1.5,
   "editor.fontLigatures": "true",
@@ -25,13 +22,14 @@
   "terminal.integrated.minimumContrastRatio": 1,
   // If permission is needed
   // sudo chown -R $(whoami) $(which code) && sudo chown -R $(whoami) /usr/share/code
-  // "fonted.font": "JetBrains Mono",
-  "fonted.font": "MonoLisa Variable",
+  "fonted.font": "MonoLisa Medium",
 
-  // NVIM SETTINGS
-  "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim",
+  // VIM SETTINGS
+  "vim.leader": "<space>",
+  "vim.useSystemClipboard": true,
+  "vim.highlightedyank.enable": true,
   "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
+    "vscodevim.vim": 1
   },
 
   // LANGUAGES
@@ -96,10 +94,6 @@
     }
   },
   "typescript.preferences.importModuleSpecifier": "relative",
-  "svelte.enable-ts-plugin": true,
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
@@ -107,31 +101,7 @@
   "prettier.printWidth": 120,
 
   // MISC
-  "editor.tokenColorCustomizations": {
-    "[*Light*]": {
-      "textMateRules": [
-        {
-          "scope": "ref.matchtext",
-          "settings": {
-            "foreground": "#000"
-          }
-        }
-      ]
-    },
-    "[*Dark*]": {
-      "textMateRules": [
-        {
-          "scope": "ref.matchtext",
-          "settings": {
-            "foreground": "#fff"
-          }
-        }
-      ]
-    },
-    "textMateRules": []
-  },
   "editor.linkedEditing": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always"
   },
@@ -153,7 +123,6 @@
   "files.autoSave": "onFocusChange",
   "git.autofetch": true,
   "remote.SSH.showLoginTerminal": true,
-  "totalTypeScript.hideAllTips": true,
   "files.associations": {
     ".env*": "dotenv"
   },
@@ -164,16 +133,19 @@
   // TELEMETRY
   "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
-  "gitlens.telemetry.enabled": false,
   "rest-client.enableTelemetry": false,
   "partialDiff.enableTelemetry": false,
   "dotnetAcquisitionExtension.enableTelemetry": false,
 
+  // AI
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "claudeCode.preferredLocation": "panel",
+  "chat.viewSessions.orientation": "stacked",
+  "chat.customAgentInSubagent.enabled": true,
+
   // OTHER
   "applicationRegistrations.useEventualConsistency": false,
   "applicationRegistrations.applicationListView": "Owned Applications",
-  "@azure.argTenant": "",
   "makefile.configureOnOpen": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "github.copilot.nextEditSuggestions.enabled": true
+  "chat.mcp.gallery.enabled": true
 }
