@@ -6,3 +6,15 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(event)
+    local bufname = vim.api.nvim_buf_get_name(event.buf)
+    if bufname:find("^fugitive://") or bufname:find("^diffview://") then
+      vim.schedule(function()
+        vim.lsp.buf_detach_client(event.buf, event.data.client_id)
+      end)
+      return
+    end
+  end,
+})
