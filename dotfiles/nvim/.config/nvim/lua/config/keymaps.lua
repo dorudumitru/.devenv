@@ -13,22 +13,6 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { de
 
 vim.keymap.set("v", "gy", "ygvgc", { remap = true, desc = "Yank and comment" })
 
--- VS Code
-if vim.g.vscode then
-  vim.keymap.set("n", "<leader>e", "<Cmd>call VSCodeNotify('workbench.view.explorer')<CR>")
-  vim.keymap.set("n", "]d", "<Cmd>call VSCodeNotify('editor.action.marker.nextInFiles')<CR>")
-  vim.keymap.set("n", "H", "<cmd>call VSCodeNotify('workbench.action.previousEditor')<cr>")
-  vim.keymap.set("n", "L", "<cmd>call VSCodeNotify('workbench.action.nextEditor')<cr>")
-  vim.keymap.set({ "n", "x" }, "<leader>ca", "<cmd>call VSCodeNotify('editor.action.quickFix')<cr>")
-  vim.keymap.set({ "n", "x" }, "<leader>cr", "<cmd>call VSCodeNotify('editor.action.rename')<cr>")
-  vim.keymap.set("n", "<leader>cf", "<cmd>call VSCodeNotify('editor.action.formatDocument')<cr>")
-  vim.keymap.set("n", "<leader>co", "<cmd>call VSCodeNotify('editor.action.organizeImports')<cr>")
-  vim.keymap.set("n", "<leader>ru", "<cmd>call VSCodeNotify('java.debug.runJavaFile')<cr>")
-  vim.keymap.set("n", "<leader>st", "<cmd>call VSCodeNotify('workbench.action.debug.stop')<cr>")
-  vim.keymap.set("n", "<leader>rr", "<cmd>call VSCodeNotify('workbench.action.debug.restart')<cr>")
-  vim.keymap.set("n", "<C-D>", "mciw*<Cmd>nohl<CR>", { remap = true })
-end
-
 -- Override LazyVim keymaps
 vim.keymap.del("n", "<C-h>")
 vim.keymap.del("n", "<C-j>")

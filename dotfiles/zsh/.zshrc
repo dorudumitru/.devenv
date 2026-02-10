@@ -1,10 +1,3 @@
-# OPENSPEC:START
-# OpenSpec shell completions configuration
-fpath=("/home/dorudumitru/.oh-my-zsh/custom/completions" $fpath)
-autoload -Uz compinit
-compinit
-# OPENSPEC:END
-
 export GIT_EDITOR=nvim
 export EDITOR=nvim
 export MANPAGER="nvim +Man!"
@@ -47,6 +40,44 @@ function git-ssh() {
   fi
 }
 
+# Setup accounts
+# cd ~/.codex
+# codex login && mv auth.json auth.gpt1.json
+# codex login && mv auth.json auth.gpt2.json
+# codex login && mv auth.json auth.gpt3.json
+#
+# Set initial account
+# ln -s auth.gpt1.json auth.json
+# echo 0 > ~/.codex/.current-account
+function codex-next() {
+      local accounts=(gpt1 gpt2 gpt3)
+      local state_file="$HOME/.codex/.current-account"
+      local auth_dir="$HOME/.codex"
+
+      # Get current index (default to 0 if file doesn't exist)
+      local current_idx=0
+      if [[ -f "$state_file" ]]; then
+          current_idx=$(<"$state_file")
+      fi
+
+      # Calculate next index (wrap around)
+      local next_idx=$(( (current_idx + 1) % ${#accounts} ))
+      local account="${accounts[$next_idx]}"
+
+      # Save new index
+      echo $next_idx > "$state_file"
+
+      # Link the appropriate auth file
+      local target="$auth_dir/auth.$account.json"
+      if [[ ! -f "$target" ]]; then
+          echo "Error: No auth found for account '$account' ($target)"
+          return 1
+      fi
+      ln -sf "$target" "$auth_dir/auth.json"
+
+      echo "Switched to account: $account"
+  }
+
 function visualvm {
   ( /opt/visualvm*/bin/visualvm --fontsize 20 "$@" & ) > /dev/null 2>&1
 }
@@ -66,6 +97,7 @@ alias cato='cato-sdp'
 alias yz='yazi'
 alias oc='opencode'
 alias cc='claude'
+alias cx='codex'
 
 # open tmux sessionizer with <C-f>
 bindkey -s "^f" "ts\n"
@@ -108,9 +140,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# opencode
-export PATH=$HOME/.opencode/bin:$PATH
-
 # fzf
 source <(fzf --zsh)
 export FZF_DEFAULT_OPTS=" \
@@ -120,3 +149,9 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
 --color=selected-bg:#494d64 \
 --color=border:#8aadf4,label:#cad3f5"
+
+# opencode
+export PATH=/home/dorudumitru/.opencode/bin:$PATH
+
+# angular
+source <(ng completion script)

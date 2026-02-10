@@ -188,7 +188,7 @@ let g:WhichKeyDesc_run_failed = "<leader>rf Rerun Failed Tests"
 let g:WhichKeyDesc_run_stop = "<leader>rs Stop"
 let g:WhichKeyDesc_run_choose_configuration = "<leader>rC Choose Run Configuration"
 
-" Debugging
+" Debug
 nmap <leader>dx <Action>(Debug)
 nmap <leader>dc <Action>(ContextDebug)
 nmap <leader>dv <Action>(ViewBreakpoints)
@@ -201,7 +201,7 @@ nmap <leader>do <Action>(StepOver)
 nmap <leader>dr <Action>(Resume)
 nmap <leader>dR <Action>(EvaluateExpression)
 nmap <leader>dt <Action>(ActivateDebugToolWindow)
-let g:WhichKeyDesc_debugging = "<leader>d Debugging"
+let g:WhichKeyDesc_debug = "<leader>d Debug"
 let g:WhichKeyDesc_debug_execute = "<leader>dx Execute Debug"
 let g:WhichKeyDesc_debug_context = "<leader>dc Context Debug"
 let g:WhichKeyDesc_debug_view_breakpoints = "<leader>dv View Breakpoints"

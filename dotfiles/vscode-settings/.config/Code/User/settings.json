@@ -11,12 +11,11 @@
   "symbols.hidesExplorerArrows": false,
 
   // FONT
-  "editor.fontFamily": "MonoLisa Medium, JetBrains Mono Medium, Symbols Nerd Font",
+  "editor.fontFamily": "MonoLisaa SemiBold, JetBrains Mono SemiBold, Symbols Nerd Font",
   "editor.fontSize": 14,
   "editor.lineHeight": 1.5,
   "editor.fontLigatures": "true",
   "editor.semanticHighlighting.enabled": true,
-  "terminal.integrated.fontWeight": "500",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.lineHeight": 1.1,
   "terminal.integrated.minimumContrastRatio": 1,
@@ -26,11 +25,31 @@
 
   // VIM SETTINGS
   "vim.leader": "<space>",
-  "vim.useSystemClipboard": true,
   "vim.highlightedyank.enable": true,
+  "vim.useSystemClipboard": false,
   "extensions.experimental.affinity": {
-    "vscodevim.vim": 1
+    "vscodevim.vim": 1,
   },
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["%"],
+      "commands": [
+        {
+          "command": "extension.matchitJumpItems",
+        },
+      ],
+    },
+    {
+      "before": ["<leader>", "y"],
+      "after": ["\"", "+", "y"],
+    },
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["<leader>", "y"],
+      "after": ["\"", "+", "y"],
+    },
+  ],
 
   // LANGUAGES
   "[dockercompose]": {
@@ -40,12 +59,12 @@
     "editor.quickSuggestions": {
       "other": true,
       "comments": false,
-      "strings": true
+      "strings": true,
     },
-    "editor.defaultFormatter": "redhat.vscode-yaml"
+    "editor.defaultFormatter": "redhat.vscode-yaml",
   },
   "[github-actions-workflow]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
+    "editor.defaultFormatter": "redhat.vscode-yaml",
   },
   "go.toolsManagement.autoUpdate": true,
   "go.diagnostic.vulncheck": "Imports",
@@ -54,56 +73,54 @@
   "go.lintFlags": ["--path-mode=abs", "--fast-only"],
   "go.formatTool": "custom",
   "go.alternateTools": {
-    "customFormatter": "golangci-lint-v2"
+    "customFormatter": "golangci-lint-v2",
   },
   "go.formatFlags": ["fmt", "--stdin"],
   "[go]": {
     "editor.defaultFormatter": "golang.go",
     "editor.tabSize": 4,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "always"
-    }
+      "source.organizeImports": "always",
+    },
   },
   "[go.mod]": {
-    "editor.defaultFormatter": "golang.go"
+    "editor.defaultFormatter": "golang.go",
   },
   "gopls": {
-    "ui.semanticTokens": true
+    "ui.semanticTokens": true,
   },
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer",
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
   },
   "[java]": {
     "editor.defaultFormatter": "josevseb.google-java-format-for-vs-code",
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "always"
-    }
+      "source.organizeImports": "always",
+    },
   },
   "[csharp]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "csharpier.csharpier-vscode"
+    "editor.defaultFormatter": "csharpier.csharpier-vscode",
   },
   "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml"
+    "editor.defaultFormatter": "redhat.vscode-xml",
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "[typescript]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "always"
-    }
+      "source.organizeImports": "always",
+    },
   },
   "typescript.preferences.importModuleSpecifier": "relative",
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
   "eslint.validate": ["javascript", "javascriptreact", "svelte", "typescript", "typescriptreact"],
   "prettier.printWidth": 120,
 
   // MISC
   "editor.linkedEditing": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "always"
+    "source.organizeImports": "always",
   },
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
@@ -114,6 +131,7 @@
   "editor.tabSize": 2,
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorSurroundingLines": 8,
+  "editor.cursorBlinking": "solid",
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
   "editor.inlineSuggest.enabled": true,
@@ -124,11 +142,20 @@
   "git.autofetch": true,
   "remote.SSH.showLoginTerminal": true,
   "files.associations": {
-    ".env*": "dotenv"
+    ".env*": "dotenv",
   },
   "dotenv.enableAutocloaking": false,
   "breadcrumbs.enabled": false,
   "terminal.integrated.cursorBlinking": true,
+  "redHatDependencyAnalytics.exclude": [
+    "**/.git/**",
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/vendor/**",
+    "**/.angular/**",
+    "**/.next/**",
+  ],
 
   // TELEMETRY
   "telemetry.telemetryLevel": "off",
@@ -142,10 +169,14 @@
   "claudeCode.preferredLocation": "panel",
   "chat.viewSessions.orientation": "stacked",
   "chat.customAgentInSubagent.enabled": true,
+  "chat.mcp.gallery.enabled": true,
 
   // OTHER
   "applicationRegistrations.useEventualConsistency": false,
   "applicationRegistrations.applicationListView": "Owned Applications",
   "makefile.configureOnOpen": false,
-  "chat.mcp.gallery.enabled": true
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [],
+  },
+  "update.showReleaseNotes": false,
 }
