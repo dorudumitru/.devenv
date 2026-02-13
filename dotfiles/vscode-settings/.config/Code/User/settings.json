@@ -142,7 +142,7 @@
   "git.autofetch": true,
   "remote.SSH.showLoginTerminal": true,
   "files.associations": {
-    ".env*": "dotenv",
+    ".env*": "dotenv"
   },
   "dotenv.enableAutocloaking": false,
   "breadcrumbs.enabled": false,
@@ -176,7 +176,7 @@
   "applicationRegistrations.applicationListView": "Owned Applications",
   "makefile.configureOnOpen": false,
   "editor.tokenColorCustomizations": {
-    "textMateRules": [],
+    "textMateRules": []
   },
   "update.showReleaseNotes": false,
 }
