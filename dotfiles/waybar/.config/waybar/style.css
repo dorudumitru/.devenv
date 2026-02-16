@@ -4,7 +4,7 @@
   border: none;
   border-radius: 2px;
   font-family:
-    JetBrainsMono Nerd Font,
+    JetBrains Mono,
     FontAwesome,
     Roboto,
     Helvetica,
@@ -34,18 +34,18 @@ button {
 
 button:hover {
   background: inherit;
-  color: @lavender;
+  color: @rosewater;
 }
 
 #workspaces button {
-  padding: 0 10px;
+  padding: 0 8px;
   background-color: @mantle;
   color: @text;
   margin: 4px 0;
 }
 
 #workspaces button.active {
-  background-color: @lavender;
+  background-color: @rosewater;
   color: @mantle;
   font-weight: bold;
 }
@@ -74,7 +74,7 @@ button:hover {
 #custom-notification,
 #bluetooth {
   padding: 0 10px;
-  margin: 5px 1px;
+  margin: 4px 1px;
   color: @text;
 }
 
@@ -98,7 +98,7 @@ button:hover {
 }
 
 #custom-notification {
-  background-color: @lavender;
+  background-color: @rosewater;
   color: @mantle;
   padding-right: 12px;
 }
