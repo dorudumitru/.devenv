@@ -45,7 +45,7 @@ OS=$(get_os)
 echo -e "\nInstalling Go version: $GO_VERSION on $OS $ARCH\n"
 
 curl -L "https://go.dev/dl/go${GO_VERSION}.${OS}-${ARCH}.tar.gz" -o "go${GO_VERSION}.${OS}-${ARCH}.tar.gz"
-sudo tar -C /usr/local -xzf "go${GO_VERSION}.${OS}-${ARCH}.tar.gz"
+sudo rm -rf /usr/local/go && tar -C /usr/local -xzf "go${GO_VERSION}.${OS}-${ARCH}.tar.gz"
 rm "go${GO_VERSION}.${OS}-${ARCH}.tar.gz"
 
 echo -e "\ngo $GO_VERSION installed successfully"

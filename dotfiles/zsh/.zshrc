@@ -85,7 +85,6 @@ function visualvm {
 # aliases
 alias ls='eza --icons=auto --group-directories-first'
 alias cat='bat'
-alias grep='rg'
 alias vim='nvim'
 alias ts='tmux-sessionizer'
 alias ngp='new-go-project'
