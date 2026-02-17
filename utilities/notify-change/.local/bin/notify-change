@@ -1,0 +1,41 @@
+#!/bin/bash
+
+APP_NAME="$1"
+VALUE="$2"
+
+case "$APP_NAME" in
+"Volume")
+  ICON="notification-audio-volume-high"
+  if [ "$VALUE" -eq 0 ]; then ICON="notification-audio-volume-muted"; fi
+  MSG="Volume: ${VALUE}%"
+  ;;
+"Brightness")
+  ICON="notification-display-brightness"
+  MSG="Brightness: ${VALUE}%"
+  ;;
+"Mute")
+  if [ "$VALUE" = "on" ]; then
+    ICON="notification-audio-volume-muted"
+    MSG="Mute: ON"
+    VALUE=0
+  else
+    ICON="notification-audio-volume-high"
+    MSG="Mute: OFF"
+  fi
+  ;;
+"Mic Mute")
+  if [ "$VALUE" = "on" ]; then
+    ICON="microphone-sensitivity-muted"
+    MSG="Mic Mute: ON"
+    VALUE=0
+  else
+    ICON="microphone-sensitivity-high"
+    MSG="Mic Mute: OFF"
+  fi
+  ;;
+esac
+
+notify-send "$MSG" "" \
+  -h string:x-canonical-private-synchronous:"$APP_NAME" \
+  -h int:value:"$VALUE" \
+  -i "$ICON"
