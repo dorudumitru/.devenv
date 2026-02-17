@@ -60,7 +60,7 @@
   --group-collapse-transition: opacity 300ms ease;
 
   font-family:
-    "JetBrainsMono Nerd Font", "Iosevka Term", "Cantarell", sans-serif;
+    "JetBrains Mono", "Symbols Nerd Font Mono", monospace, sans-serif;
 }
 
 @define-color cc-bg rgba(54, 58, 79, 0.94);
