@@ -93,19 +93,20 @@ button:hover {
 }
 
 #custom-weather {
-  background-color: @teal;
+  /* background-color: @teal; */
+  background-color: @sky;
   color: @mantle;
   margin-right: 5px;
 }
 
 #custom-notification {
-  background-color: @rosewater;
+  background-color: @teal;
   color: @mantle;
   padding: 0 12px 0 12px;
 }
 
 #clock {
-  background-color: @green;
+  background-color: @sapphire;
   color: @mantle;
 }
 
@@ -160,23 +161,22 @@ label:focus {
 }
 
 #cpu {
-  background-color: @mauve;
+  background-color: @rosewater;
   color: @mantle;
-  min-width: 45px;
 }
 
 #memory {
-  background-color: @sapphire;
+  background-color: @flamingo;
   color: @mantle;
 }
 
 #backlight {
-  background-color: @teal;
+  background-color: @peach;
   color: @mantle;
 }
 
 #network {
-  background-color: @sky;
+  background-color: @mauve;
   color: @mantle;
 }
 
@@ -186,7 +186,7 @@ label:focus {
 }
 
 #bluetooth {
-  background-color: @rosewater;
+  background-color: @pink;
   color: @mantle;
   min-width: 15px;
 }
