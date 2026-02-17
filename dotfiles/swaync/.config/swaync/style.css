@@ -36,20 +36,20 @@
   --noti-bg-darker: rgba(30, 32, 48, 0.92);
   --noti-bg-hover: rgba(73, 77, 100, 0.86);
   --noti-bg-focus: rgba(91, 96, 120, 0.4);
-  --noti-border-color: rgba(138, 173, 244, 0.38);
+  --noti-border-color: rgba(244, 219, 214, 0.42);
   --noti-close-bg: rgba(237, 135, 150, 0.2);
   --noti-close-bg-hover: rgba(237, 135, 150, 0.35);
 
   --text-color: var(--text);
   --text-color-disabled: var(--overlay1);
-  --bg-selected: var(--mauve);
+  --bg-selected: var(--rosewater);
 
   --notification-icon-size: 64px;
   --notification-app-icon-size: 22px;
   --notification-group-icon-size: 20px;
 
   --border: 1px solid var(--noti-border-color);
-  --border-radius: 8px;
+  --border-radius: 10.4px;
   --notification-shadow:
     0 10px 30px rgba(24, 25, 38, 0.55), 0 2px 8px rgba(0, 0, 0, 0.35);
 
@@ -64,7 +64,7 @@
 }
 
 @define-color cc-bg rgba(54, 58, 79, 0.94);
-@define-color noti-border-color rgba(138, 173, 244, 0.38);
+@define-color noti-border-color rgba(244, 219, 214, 0.42);
 @define-color noti-bg rgba(36, 39, 58, 0.9);
 @define-color noti-bg-opaque rgb(36, 39, 58);
 @define-color noti-bg-darker rgba(30, 32, 48, 0.92);
@@ -75,7 +75,7 @@
 @define-color noti-close-bg-hover rgba(237, 135, 150, 0.35);
 @define-color text-color rgb(202, 211, 245);
 @define-color text-color-disabled rgb(128, 135, 162);
-@define-color bg-selected rgb(198, 160, 246);
+@define-color bg-selected rgb(244, 219, 214);
 
 * {
   text-shadow: none;
@@ -92,8 +92,8 @@ blankwindow,
 .control-center {
   background: var(--cc-bg);
   color: var(--text-color);
-  border-radius: 10px;
-  border: 1px solid rgba(183, 189, 248, 0.25);
+  border-radius: 13px;
+  border: 1px solid rgba(244, 219, 214, 0.32);
   box-shadow: 0 16px 46px rgba(24, 25, 38, 0.7);
 }
 
@@ -129,11 +129,11 @@ blankwindow,
 }
 
 .notification-row .notification-background .notification.low {
-  border-color: rgba(139, 213, 202, 0.52);
+  border-color: rgba(240, 198, 198, 0.46);
 }
 
 .notification-row .notification-background .notification.normal {
-  border-color: rgba(138, 173, 244, 0.46);
+  border-color: rgba(244, 219, 214, 0.52);
 }
 
 .notification-row .notification-background .notification.critical {
@@ -193,7 +193,7 @@ blankwindow,
   .notification-default-action
   .notification-content
   .image {
-  border-radius: 7px;
+  border-radius: 9.1px;
   margin: 5px;
   -gtk-icon-filter: none;
   -gtk-icon-size: var(--notification-icon-size);
@@ -231,7 +231,7 @@ blankwindow,
   .time {
   font-size: 0.93rem;
   font-weight: 700;
-  color: var(--lavender);
+  color: var(--rosewater);
   margin-right: 28px;
 }
 
@@ -273,7 +273,7 @@ blankwindow,
   .notification-content
   progressbar
   progress {
-  background: linear-gradient(90deg, var(--blue), var(--mauve));
+  background: linear-gradient(90deg, var(--rosewater), var(--flamingo));
   border-radius: 999px;
 }
 
@@ -286,9 +286,9 @@ blankwindow,
   .inline-reply-entry {
   background: var(--noti-bg-darker);
   color: var(--text-color);
-  border: 1px solid rgba(183, 189, 248, 0.3);
-  border-radius: 6px;
-  caret-color: var(--mauve);
+  border: 1px solid rgba(244, 219, 214, 0.38);
+  border-radius: 7.8px;
+  caret-color: var(--rosewater);
 }
 
 .notification-row
@@ -299,10 +299,10 @@ blankwindow,
   .inline-reply
   .inline-reply-button {
   margin-left: 6px;
-  background: rgba(138, 173, 244, 0.2);
+  background: rgba(244, 219, 214, 0.22);
   color: var(--text-color);
-  border: 1px solid rgba(138, 173, 244, 0.42);
-  border-radius: 6px;
+  border: 1px solid rgba(244, 219, 214, 0.5);
+  border-radius: 7.8px;
 }
 
 .notification-row
@@ -312,7 +312,7 @@ blankwindow,
   .notification-content
   .inline-reply
   .inline-reply-button:hover {
-  background: rgba(198, 160, 246, 0.28);
+  background: rgba(240, 198, 198, 0.34);
 }
 
 .notification-row
@@ -333,9 +333,9 @@ blankwindow,
   .notification
   .notification-action
   > button {
-  border-radius: 6px;
-  border: 1px solid rgba(166, 218, 149, 0.34);
-  background: rgba(166, 218, 149, 0.15);
+  border-radius: 7.8px;
+  border: 1px solid rgba(244, 219, 214, 0.44);
+  background: rgba(244, 219, 214, 0.22);
   color: var(--text-color);
 }
 
@@ -371,7 +371,7 @@ blankwindow,
 }
 
 .notification-group .notification-group-headers .notification-group-icon {
-  color: var(--lavender);
+  color: var(--rosewater);
   -gtk-icon-size: var(--notification-group-icon-size);
 }
 
@@ -383,9 +383,9 @@ blankwindow,
 .widget {
   margin: 8px;
   padding: 10px;
-  border-radius: 7px;
+  border-radius: 9.1px;
   background: rgba(36, 39, 58, 0.46);
-  border: 1px solid rgba(125, 196, 228, 0.22);
+  border: 1px solid rgba(244, 219, 214, 0.3);
 }
 
 .widget-title,
@@ -408,17 +408,17 @@ blankwindow,
 .widget-title > button,
 .widget-inhibitors > button {
   margin-left: 8px;
-  border-radius: 6px;
-  background: rgba(138, 173, 244, 0.22);
-  border: 1px solid rgba(138, 173, 244, 0.45);
+  border-radius: 7.8px;
+  background: rgba(244, 219, 214, 0.22);
+  border: 1px solid rgba(244, 219, 214, 0.5);
   color: var(--text-color);
 }
 
 .macchiato-title > button:hover,
 .widget-title > button:hover,
 .widget-inhibitors > button:hover {
-  background: rgba(198, 160, 246, 0.3);
-  border-color: rgba(198, 160, 246, 0.56);
+  background: rgba(240, 198, 198, 0.32);
+  border-color: rgba(240, 198, 198, 0.58);
 }
 
 .macchiato-dnd label,
@@ -436,8 +436,8 @@ blankwindow,
 }
 
 .widget-dnd switch:checked {
-  background: rgba(198, 160, 246, 0.6);
-  border-color: rgba(198, 160, 246, 0.8);
+  background: rgba(244, 219, 214, 0.55);
+  border-color: rgba(240, 198, 198, 0.82);
 }
 
 .widget-dnd switch slider {
@@ -452,8 +452,8 @@ blankwindow,
 
 .widget-mpris .widget-mpris-player {
   margin: 12px;
-  border-radius: 7px;
-  border: 1px solid rgba(145, 215, 227, 0.3);
+  border-radius: 9.1px;
+  border: 1px solid rgba(244, 219, 214, 0.34);
   box-shadow: 0 8px 24px rgba(24, 25, 38, 0.52);
 }
 
@@ -478,31 +478,31 @@ blankwindow,
 
 .widget-mpris .widget-mpris-player .mpris-overlay > box > button,
 .widget-mpris > box > button {
-  border-radius: 5px;
-  border: 1px solid rgba(139, 213, 202, 0.32);
-  background: rgba(139, 213, 202, 0.14);
+  border-radius: 6.5px;
+  border: 1px solid rgba(244, 219, 214, 0.38);
+  background: rgba(244, 219, 214, 0.18);
   color: var(--text-color);
 }
 
 .widget-mpris .widget-mpris-player .mpris-overlay > box > button:hover,
 .widget-mpris > box > button:hover {
-  background: rgba(145, 215, 227, 0.24);
+  background: rgba(240, 198, 198, 0.3);
 }
 
 .widget-buttons-grid flowboxchild > button {
-  border-radius: 6px;
-  border: 1px solid rgba(183, 189, 248, 0.35);
-  background: rgba(183, 189, 248, 0.13);
+  border-radius: 7.8px;
+  border: 1px solid rgba(244, 219, 214, 0.4);
+  background: rgba(244, 219, 214, 0.16);
   color: var(--text);
 }
 
 .widget-buttons-grid flowboxchild > button:hover {
-  background: rgba(245, 189, 230, 0.2);
+  background: rgba(240, 198, 198, 0.24);
 }
 
 .widget-buttons-grid flowboxchild > button.toggle:checked {
-  border-color: rgba(166, 218, 149, 0.75);
-  background: rgba(166, 218, 149, 0.25);
+  border-color: rgba(244, 219, 214, 0.82);
+  background: rgba(244, 219, 214, 0.32);
 }
 
 .widget-slider label,
@@ -519,7 +519,7 @@ blankwindow,
 .per-app-volume {
   margin: 8px;
   margin-bottom: 0;
-  border-radius: 6px;
+  border-radius: 7.8px;
   background: var(--noti-bg-alt);
 }
 
@@ -531,20 +531,20 @@ scale trough {
 
 scale highlight,
 scale fill {
-  background: linear-gradient(90deg, var(--blue), var(--mauve));
+  background: linear-gradient(90deg, var(--rosewater), var(--flamingo));
   border-radius: 999px;
 }
 
 .widget-menubar > .menu-button-bar > .widget-menubar-container button,
 .widget-menubar > revealer * button {
-  border-radius: 6px;
+  border-radius: 7.8px;
   margin: 6px;
-  background: rgba(138, 173, 244, 0.16);
-  border: 1px solid rgba(138, 173, 244, 0.34);
+  background: rgba(244, 219, 214, 0.18);
+  border: 1px solid rgba(244, 219, 214, 0.38);
   color: var(--text-color);
 }
 
 .widget-menubar > .menu-button-bar > .widget-menubar-container button:hover,
 .widget-menubar > revealer * button:hover {
-  background: rgba(198, 160, 246, 0.25);
+  background: rgba(240, 198, 198, 0.28);
 }
