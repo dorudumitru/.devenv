@@ -65,6 +65,7 @@ button:hover {
 #cpu,
 #memory,
 #backlight,
+#network,
 #pulseaudio,
 #tray,
 #mode,
@@ -100,7 +101,7 @@ button:hover {
 #custom-notification {
   background-color: @rosewater;
   color: @mantle;
-  padding-right: 12px;
+  padding: 0 12px 0 12px;
 }
 
 #clock {
@@ -137,7 +138,7 @@ button:hover {
 }
 
 #power-profiles-daemon.performance {
-  background-color: @red;
+  background-color: @maroon;
   color: @mantle;
   padding: 0 15px 0 13px;
 }
@@ -165,7 +166,7 @@ label:focus {
 }
 
 #memory {
-  background-color: @rosewater;
+  background-color: @sapphire;
   color: @mantle;
 }
 
@@ -174,10 +175,20 @@ label:focus {
   color: @mantle;
 }
 
-#bluetooth {
-  background-color: @sapphire;
+#network {
+  background-color: @sky;
   color: @mantle;
-  min-width: 40px;
+}
+
+#network.disconnected {
+  background-color: @red;
+  color: @mantle;
+}
+
+#bluetooth {
+  background-color: @rosewater;
+  color: @mantle;
+  min-width: 15px;
 }
 
 #pulseaudio {
@@ -186,17 +197,17 @@ label:focus {
 }
 
 #pulseaudio.muted {
-  background-color: red;
+  background-color: @red;
   color: @mantle;
 }
 
 #wireplumber {
-  background-color: #fff0f5;
-  color: #000000;
+  background-color: @text;
+  color: @mantle;
 }
 
 #wireplumber.muted {
-  background-color: #f53c3c;
+  background-color: @red;
 }
 
 #tray {
@@ -230,17 +241,17 @@ label:focus {
 
 #privacy-item {
   padding: 0 5px;
-  color: white;
+  color: @text;
 }
 
 #privacy-item.screenshare {
-  background-color: #cf5700;
+  background-color: @maroon;
 }
 
 #privacy-item.audio-in {
-  background-color: #1ca000;
+  background-color: @green;
 }
 
 #privacy-item.audio-out {
-  background-color: #0069d4;
+  background-color: @blue;
 }
