@@ -9,7 +9,7 @@ logger 'killed all xdg-desktop'
 sleep 1
 /usr/libexec/xdg-desktop-portal-gtk &
 logger 'xdg-desktop-portal-gtk started'
-sleep 1
+sleep 2
 /usr/libexec/xdg-desktop-portal-hyprland &
 logger 'xdg-desktop-portal-hyprland started'
 sleep 2

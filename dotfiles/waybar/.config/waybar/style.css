@@ -93,20 +93,18 @@ button:hover {
 }
 
 #custom-weather {
-  /* background-color: @teal; */
-  background-color: @sky;
+  background-color: @teal;
   color: @mantle;
-  margin-right: 5px;
 }
 
 #custom-notification {
-  background-color: @teal;
+  background-color: @sapphire;
   color: @mantle;
   padding: 0 12px 0 12px;
 }
 
 #clock {
-  background-color: @sapphire;
+  background-color: @sky;
   color: @mantle;
 }
 
