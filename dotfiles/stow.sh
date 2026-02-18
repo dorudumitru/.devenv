@@ -42,9 +42,6 @@ for dir in */; do # list directories in the form "dirname/"
   elif [ "$dir" == "sdkman" ]; then
     rm "$HOME"/.sdkman/etc/config
     stow -t "$HOME" "${dir##*/}"
-  elif [ "$dir" == "hypr" ]; then
-    rm -rf "$HOME"/.config/hypr
-    stow -t "$HOME" "${dir##*/}"
   fi
 
   rm -rf "$HOME"/.config/"${dir##*/}"

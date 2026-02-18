@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+mkdir -p "$HOME"/.ssh
+
 rm "$HOME"/.ssh/hh_enterprise.pub
 rm "$HOME"/.ssh/work.pub
 rm "$HOME"/.ssh/personal.pub

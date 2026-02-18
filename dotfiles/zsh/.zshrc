@@ -151,6 +151,3 @@ export FZF_DEFAULT_OPTS=" \
 
 # opencode
 export PATH=/home/dorudumitru/.opencode/bin:$PATH
-
-# angular
-source <(ng completion script)
