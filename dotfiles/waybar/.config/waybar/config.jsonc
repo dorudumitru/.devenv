@@ -3,7 +3,7 @@
   "position": "top", // Waybar position (top|bottom|left|right)
   "height": 30, // Waybar height (to be removed for auto height)
   "modules-left": ["hyprland/workspaces", "hyprland/mode"],
-  "modules-center": ["clock", "custom/weather"],
+  // "modules-center": ["clock", "custom/weather"],
   "modules-right": [
     "tray",
     "idle_inhibitor",
@@ -15,6 +15,8 @@
     "backlight",
     "pulseaudio",
     "battery",
+    "custom/weather",
+    "clock",
     "custom/notification",
   ],
   "hyprland/mode": {
@@ -139,9 +141,8 @@
     "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
     "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50,
     "on-click": "nm-connection-editor",
-    "on-click-right": "nm-connection-editor",
+    "on-click-right": "nmtui",
   },
   "custom/notification": {
     "tooltip": false,
