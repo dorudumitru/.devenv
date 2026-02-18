@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.bitwarden.desktop --user -y
+curl -L -o /tmp/bitwarden.rpm "https://bitwarden.com/download/?app=desktop&platform=linux&variant=rpm"
+sudo dnf install -y /tmp/bitwarden.rpm
+rm /tmp/bitwarden.rpm
