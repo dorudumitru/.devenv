@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-sudo dnf install eza -y
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+cargo install eza
+
+echo -e "\neza installed successfully!"

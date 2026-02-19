@@ -11,3 +11,5 @@ unzip visualvm*.zip
 rm visualvm*.zip
 
 sudo mv "$HOME"/Downloads/visualvm* /opt/
+
+echo -e "\nVisualVM installed successfully!"

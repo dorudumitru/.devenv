@@ -3,11 +3,41 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~ ~/Projects -mindepth 1 -maxdepth 3 -type d | fzf)
+  selected=$(
+    fd . ~/Projects \
+      --type d \
+      --min-depth 1 \
+      --max-depth 3 \
+      --hidden \
+      --exclude .git \
+      --exclude node_modules \
+      --exclude .next \
+      --exclude dist \
+      --exclude build \
+      --exclude coverage \
+      --exclude .turbo \
+      --exclude .cache \
+      --exclude target \
+      --exclude .venv \
+      --exclude venv \
+      --exclude __pycache__ \
+      --exclude .idea \
+      --exclude .vscode \
+      2>/dev/null | fzf
+  )
 fi
 
-if [[ -z $selected ]]; then
-  exit 0
-fi
+[[ -z $selected ]] && return
+cd "$selected" || return
 
-cd "$selected" || exit
+# if [[ $# -eq 1 ]]; then
+#   selected=$1
+# else
+#   selected=$(find ~ ~/Projects -mindepth 1 -maxdepth 3 -type d | fzf)
+# fi
+#
+# if [[ -z $selected ]]; then
+#   return 0
+# fi
+#
+# cd "$selected" || return

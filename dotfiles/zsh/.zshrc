@@ -49,7 +49,7 @@ function git-ssh() {
 # Set initial account
 # ln -s auth.gpt1.json auth.json
 # echo 0 > ~/.codex/.current-account
-function codex-next() {
+function cxnext() {
       local accounts=(gpt1 gpt2 gpt3)
       local state_file="$HOME/.codex/.current-account"
       local auth_dir="$HOME/.codex"
@@ -151,3 +151,14 @@ export FZF_DEFAULT_OPTS=" \
 
 # opencode
 export PATH=/home/dorudumitru/.opencode/bin:$PATH
+
+# opencode
+export PATH=/home/doru.dumitru/.opencode/bin:$PATH
+
+# pnpm
+export PNPM_HOME="/home/doru.dumitru/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

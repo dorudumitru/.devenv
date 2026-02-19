@@ -13,3 +13,5 @@ ssh-add -L | grep "Personal" >"$HOME"/.ssh/personal.pub
 chmod 644 "$HOME"/.ssh/hh_enterprise.pub
 chmod 644 "$HOME"/.ssh/work.pub
 chmod 644 "$HOME"/.ssh/personal.pub
+
+echo -e "\nSSH public keys exported successfully!"
