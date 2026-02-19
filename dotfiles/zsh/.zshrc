@@ -152,13 +152,3 @@ export FZF_DEFAULT_OPTS=" \
 # opencode
 export PATH=/home/dorudumitru/.opencode/bin:$PATH
 
-# opencode
-export PATH=/home/doru.dumitru/.opencode/bin:$PATH
-
-# pnpm
-export PNPM_HOME="/home/doru.dumitru/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
