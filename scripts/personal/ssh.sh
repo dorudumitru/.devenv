@@ -14,4 +14,6 @@ chmod 644 "$HOME"/.ssh/hh_enterprise.pub
 chmod 644 "$HOME"/.ssh/work.pub
 chmod 644 "$HOME"/.ssh/personal.pub
 
+cd ~/.devenv && git remote set-url origin git@github.com:dorudumitru/.devenv.git
+
 echo -e "\nSSH public keys exported successfully!"

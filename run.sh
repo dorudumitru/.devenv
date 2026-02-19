@@ -81,7 +81,7 @@ else
 
     script_name=$(basename "$script")
 
-    if [[ "$script_name" == "ssh.sh" ]]; then
+    if [[ "$script_name" == "ssh.sh" && -z "$filter" ]]; then
       continue
     fi
 
