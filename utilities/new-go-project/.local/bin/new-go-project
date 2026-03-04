@@ -11,7 +11,7 @@ pararser() {
     if [[ $1 == "--help" ]]; then
       echo " Usage:"
       echo "   --name         project name (required | ex: myapp)"
-      echo "   --path         project path (optional | ex: ~/Projects/ibm | default: ~/Projects/playground/golang)"
+      echo "   --path         project path (optional | ex: ~/Projects/ibm | default: ~/Projects/personal/golang)"
       echo "   --db2          use db2 Makefile (optional | use only if you want the db2 specific Makefile)"
       exit
     elif [[ $1 == *"--"* ]]; then
@@ -38,7 +38,7 @@ if [[ $name == "" ]]; then
 fi
 
 if [[ $path == "" ]]; then
-  projectPath=~/Projects/playground/golang/$name
+  projectPath=~/Projects/personal/golang/$name
 fi
 
 if [[ $db2 == false ]]; then

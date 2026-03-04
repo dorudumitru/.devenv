@@ -50,7 +50,7 @@ if [[ -z $selected ]]; then
   exit 0
 fi
 
-selected_name=$(basename "$selected" | tr -cs '[:alnum:]' '_')
+selected_name=$(basename "$selected" | tr -d '\n' | tr -cs '[:alnum:]' '_')
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then

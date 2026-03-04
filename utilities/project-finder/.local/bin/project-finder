@@ -29,15 +29,3 @@ fi
 
 [[ -z $selected ]] && return
 cd "$selected" || return
-
-# if [[ $# -eq 1 ]]; then
-#   selected=$1
-# else
-#   selected=$(find ~ ~/Projects -mindepth 1 -maxdepth 3 -type d | fzf)
-# fi
-#
-# if [[ -z $selected ]]; then
-#   return 0
-# fi
-#
-# cd "$selected" || return
