@@ -107,6 +107,14 @@
     "when": "vim.mode == 'Normal' && editorTextFocus",
   },
   {
+    "key": "space y",
+    "command": "vim.remap",
+    "when": "editorTextFocus && (vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine' || vim.mode == 'VisualBlock')",
+    "args": {
+      "after": ["\"", "+", "y"],
+    },
+  },
+  {
     "key": "space c a",
     "command": "editor.action.codeAction",
     "when": "vim.mode == 'Normal' && editorTextFocus",
