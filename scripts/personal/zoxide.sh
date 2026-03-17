@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
-sudo dnf install zoxide -y
+root_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
+source "$root_dir/lib/install.sh"
+
+install_packages zoxide
 
 echo -e "\nzoxide installed successfully!"

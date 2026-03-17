@@ -5,6 +5,27 @@ filter=""
 dry="0"
 work="0"
 
+detect_distro() {
+  if [[ ! -f /etc/os-release ]]; then
+    echo "Unable to detect distro: /etc/os-release was not found." >&2
+    exit 1
+  fi
+
+  # shellcheck disable=SC1091
+  source /etc/os-release
+
+  case "${ID:-}" in
+  fedora | arch)
+    DISTRO="$ID"
+    export DISTRO
+    ;;
+  *)
+    echo "Unsupported distro: ${ID:-unknown}. Supported distros: fedora, arch." >&2
+    exit 1
+    ;;
+  esac
+}
+
 cd "$current_dir" || exit
 personal_scripts=$(find ./scripts/personal -maxdepth 1 -mindepth 1 -executable -type f)
 work_scripts=$(find ./scripts/work -maxdepth 1 -mindepth 1 -executable -type f)
@@ -15,6 +36,7 @@ usage() {
 Usage: ${0} [OPTIONS] [FILTER]
 
 Runs scripts found in the './scripts/personal' directory.
+Supports Fedora and Arch Linux only, detected automatically from /etc/os-release.
 
 Arguments:
   [FILTER]      An optional string used to filter which scripts to run.
@@ -60,6 +82,8 @@ while [[ $# -gt 0 ]]; do
 
   shift
 done
+
+detect_distro
 
 if [[ $work == "1" ]]; then
   for script in $work_scripts; do

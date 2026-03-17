@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
 neovim_dir="$HOME/Downloads/neovim"
-sudo dnf -y install ninja-build cmake gcc make gettext curl glibc-gconv-extra git
+root_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
+source "$root_dir/lib/install.sh"
+
+if is_fedora; then
+  install_packages ninja-build cmake gcc make gettext curl glibc-gconv-extra git
+else
+  install_packages base-devel cmake ninja gettext curl git
+fi
+
 git clone --depth 1 https://github.com/neovim/neovim "$neovim_dir"
 
 cd "$neovim_dir" || exit

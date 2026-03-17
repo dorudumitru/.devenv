@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-sudo dnf install qt5-wayland -y
+root_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
+source "$root_dir/lib/install.sh"
+
+install_packages qt5-wayland

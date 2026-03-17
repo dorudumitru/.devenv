@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 
-sudo dnf -y install zsh util-linux-user
+root_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
+source "$root_dir/lib/install.sh"
+
+if is_fedora; then
+  install_packages zsh util-linux-user
+else
+  install_packages zsh util-linux
+fi
+
 # sudo chsh "$USER"
 # sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
