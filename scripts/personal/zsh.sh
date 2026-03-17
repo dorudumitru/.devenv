@@ -1,16 +1,6 @@
 #!/usr/bin/env bash
 
-root_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
-source "$root_dir/lib/install.sh"
-
-if is_fedora; then
-  install_packages zsh util-linux-user
-else
-  install_packages zsh util-linux
-fi
-
-# sudo chsh "$USER"
-# sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+yay -S --needed --noconfirm zsh
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Installing Oh My Zsh..."
@@ -24,7 +14,7 @@ fi
 
 if [ "$SHELL" != "/bin/zsh" ]; then
   echo "Setting zsh as default shell..."
-  sudo chsh -s /bin/zsh "$USER"
+  sudo chsh -s "$(which zsh)"
 fi
 
 echo -e "\nZsh and Oh My Zsh installed successfully!"
