@@ -263,13 +263,12 @@ watch: lint
 prod: clean lint tidy audit no-dirty
 	@echo "Creating production build for $(GOOS)/$(GOARCH)..."
 	@GOOS=${GOOS} GOARCH=${GOARCH} ${GO} build -ldflags='-s' -o dist/${GOOS}_${GOARCH}/${APP_NAME}/${BINARY_NAME} ${MAIN_PACKAGE_PATH}
-	# upx is flaged by ibm as virus - don't use on work laptop
-	# @if command -v upx &> /dev/null; then \
-	# 	echo "Compressing binary with upx..."; \
-	# 	upx -5 ./dist/${GOOS}_${GOARCH}/${APP_NAME}/${BINARY_NAME}; \
-	# else \
-	# 	echo "Warning: upx not found. Skipping binary compression."; \
-	# fi
+	@if command -v upx &> /dev/null; then \
+		echo "Compressing binary with upx..."; \
+		upx -5 ./dist/${GOOS}_${GOARCH}/${APP_NAME}/${BINARY_NAME}; \
+	else \
+		echo "Warning: upx not found. Skipping binary compression."; \
+	fi
 
 ## deploy: deploy the application to production
 .PHONY: deploy
