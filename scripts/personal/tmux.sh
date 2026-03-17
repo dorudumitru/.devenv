@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install tmux -y
+yay -S --needed --noconfirm tmux
 
 echo -e "\ntmux installed successfully!"

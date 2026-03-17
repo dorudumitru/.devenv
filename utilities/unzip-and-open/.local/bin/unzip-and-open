@@ -12,7 +12,7 @@ pararser() {
     if [[ $1 == "--help" ]]; then
       echo " Usage:"
       echo "   --zip              zip file path (required | ex: ~/Downloads/random-folder/myzip.zip)"
-      echo "   --path             project path (optional | ex: ~/Projects/ibm | default: ~/Projects/personal/java)"
+      echo "   --path             project path (optional | ex: ~/Projects/work | default: ~/Projects/personal)"
       echo "   --ide              open project in IDE (optional | value: code / idea / tmux | default: tmux)"
       echo "   --rename           rename project (optional | if specified, will rename the app folder to param value)"
       exit
@@ -33,7 +33,7 @@ if [[ $zip == "" ]]; then
 fi
 
 if [[ $path == "" ]]; then
-  path=~/Projects/personal/java
+  path=~/Projects/personal
 fi
 
 bname="$(basename -- "$zip")"

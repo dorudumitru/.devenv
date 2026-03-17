@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install git-delta -y
+yay -S --needed --noconfirm git-delta
 
 echo -e "\ndelta installed successfully!"

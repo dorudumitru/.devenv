@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install dnf-plugins-core
-sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-sudo dnf install -y brave-browser
+yay -S --needed --noconfirm brave-bin
 
 echo -e "\nBrave Browser installed successfully!"

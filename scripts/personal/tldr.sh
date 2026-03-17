@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install -y tealdeer
+yay -S --needed --noconfirm tealdeer
+
+echo -e "\ntldr installed successfully!"

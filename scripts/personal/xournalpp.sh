@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install xournalpp -y
+yay -S --needed --noconfirm xournalpp
+
+echo -e "\nxournalpp installed successfully!"

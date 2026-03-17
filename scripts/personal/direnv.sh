@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install direnv -y
+yay -S --needed --noconfirm direnv
 
 echo -e "\ndirenv installed successfully!"

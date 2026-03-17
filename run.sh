@@ -46,6 +46,25 @@ execute() {
   "$@"
 }
 
+ensure_yay() {
+  if command -v yay >/dev/null 2>&1; then
+    return
+  fi
+
+  log "'yay' not found. Installing..."
+
+  if [[ $dry == "1" ]]; then
+    return
+  fi
+
+  sudo pacman -S --needed git base-devel
+
+  tmp_dir=$(mktemp -d)
+  git clone https://aur.archlinux.org/yay.git "$tmp_dir/yay"
+  cd "$tmp_dir/yay" || exit
+  makepkg -si --noconfirm
+}
+
 while [[ $# -gt 0 ]]; do
   if [[ $1 == "--dry" ]]; then
     dry="1"
@@ -60,6 +79,8 @@ while [[ $# -gt 0 ]]; do
 
   shift
 done
+
+ensure_yay
 
 if [[ $work == "1" ]]; then
   for script in $work_scripts; do

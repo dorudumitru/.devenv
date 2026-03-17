@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-sudo dnf -y install zsh util-linux-user
-# sudo chsh "$USER"
-# sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+yay -S --needed --noconfirm zsh
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Installing Oh My Zsh..."
@@ -16,7 +14,7 @@ fi
 
 if [ "$SHELL" != "/bin/zsh" ]; then
   echo "Setting zsh as default shell..."
-  sudo chsh -s /bin/zsh "$USER"
+  sudo chsh -s "$(which zsh)"
 fi
 
 echo -e "\nZsh and Oh My Zsh installed successfully!"

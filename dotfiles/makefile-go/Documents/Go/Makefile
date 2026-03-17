@@ -31,7 +31,7 @@ GO ?= go
 # - linux
 OS ?= linux
 ARCH ?= amd64
-MAIN_PACKAGE ?= github.com/HarteHanks/$(APP_NAME)
+MAIN_PACKAGE ?= github.com/dorudumitru/$(APP_NAME)
 # The path to the folder where main.go resides.
 # Example: ./cmd/my-app
 MAIN_PACKAGE_PATH ?= .

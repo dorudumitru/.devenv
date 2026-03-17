@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf copr enable lihaohong/yazi -y
-sudo dnf install yazi -y
+yay -S --needed --noconfirm yazi
 
 echo -e "\nyazi installed successfully!"

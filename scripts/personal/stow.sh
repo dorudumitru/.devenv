@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install stow -y
+yay -S --needed --noconfirm stow
 
 echo -e "\nstow installed successfully!"

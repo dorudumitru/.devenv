@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install ripgrep -y
+yay -S --needed --noconfirm ripgrep
 
 echo -e "\nripgrep installed successfully!"

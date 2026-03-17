@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install zoxide -y
+yay -S --needed --noconfirm zoxide
 
 echo -e "\nzoxide installed successfully!"

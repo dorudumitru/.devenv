@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install btop -y
+yay -S --needed --noconfirm btop
 
 echo -e "\nbtop installed successfully!"

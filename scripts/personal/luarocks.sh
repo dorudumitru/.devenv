@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install luarocks -y
+yay -S --needed --noconfirm luarocks
 
 echo -e "\nluarocks installed successfully!"

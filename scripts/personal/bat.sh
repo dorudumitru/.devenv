@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install bat -y
+yay -S --needed --noconfirm bat
 
 echo -e "\nbat installed successfully!"

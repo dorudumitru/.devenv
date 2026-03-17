@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install fd -y
+yay -S --needed --noconfirm fd
 
 echo -e "\nfd installed successfully!"

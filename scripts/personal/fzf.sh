@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-sudo dnf install fzf -y
+yay -S --needed --noconfirm fzf
 
 echo -e "\nfzf installed successfully!"
