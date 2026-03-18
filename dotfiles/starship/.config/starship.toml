@@ -82,7 +82,7 @@ symbol = " "
 symbol = " "
 
 [directory]
-read_only = " "
+read_only = " 󰌾"
 truncation_length = 4
 style = "bold lavender"
 
