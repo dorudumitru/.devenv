@@ -40,44 +40,6 @@ function git-ssh() {
   fi
 }
 
-# Setup accounts
-# cd ~/.codex
-# codex login && mv auth.json auth.gpt1.json
-# codex login && mv auth.json auth.gpt2.json
-# codex login && mv auth.json auth.gpt3.json
-#
-# Set initial account
-# ln -s auth.gpt1.json auth.json
-# echo 0 > ~/.codex/.current-account
-function cxnext() {
-      local accounts=(gpt1 gpt2 gpt3)
-      local state_file="$HOME/.codex/.current-account"
-      local auth_dir="$HOME/.codex"
-
-      # Get current index (default to 0 if file doesn't exist)
-      local current_idx=0
-      if [[ -f "$state_file" ]]; then
-          current_idx=$(<"$state_file")
-      fi
-
-      # Calculate next index (wrap around)
-      local next_idx=$(( (current_idx + 1) % ${#accounts} ))
-      local account="${accounts[$next_idx]}"
-
-      # Save new index
-      echo $next_idx > "$state_file"
-
-      # Link the appropriate auth file
-      local target="$auth_dir/auth.$account.json"
-      if [[ ! -f "$target" ]]; then
-          echo "Error: No auth found for account '$account' ($target)"
-          return 1
-      fi
-      ln -sf "$target" "$auth_dir/auth.json"
-
-      echo "Switched to account: $account"
-  }
-
 # aliases
 alias ls='eza --icons=auto --group-directories-first'
 alias cat='bat'
@@ -93,7 +55,7 @@ alias yz='yazi'
 alias oc='opencode'
 alias cc='claude'
 alias cx='codex'
-# alias visualvm='visualvm --fontsize 20'
+alias visualvm='visualvm --fontsize 20'
 
 # open tmux sessionizer with <C-f>
 bindkey -s "^f" "ts\n"
