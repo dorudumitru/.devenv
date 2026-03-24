@@ -78,10 +78,6 @@ function cxnext() {
       echo "Switched to account: $account"
   }
 
-function visualvm {
-  ( /opt/visualvm*/bin/visualvm --fontsize 20 "$@" & ) > /dev/null 2>&1
-}
-
 # aliases
 alias ls='eza --icons=auto --group-directories-first'
 alias cat='bat'
@@ -97,6 +93,7 @@ alias yz='yazi'
 alias oc='opencode'
 alias cc='claude'
 alias cx='codex'
+# alias visualvm='visualvm --fontsize 20'
 
 # open tmux sessionizer with <C-f>
 bindkey -s "^f" "ts\n"
