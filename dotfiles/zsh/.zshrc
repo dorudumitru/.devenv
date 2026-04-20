@@ -56,6 +56,7 @@ alias oc='opencode'
 alias cc='claude'
 alias cx='codex'
 alias visualvm='visualvm --fontsize 20'
+alias stremio="flatpak run com.stremio.Stremio"
 
 # open tmux sessionizer with <C-f>
 bindkey -s "^f" "ts\n"
