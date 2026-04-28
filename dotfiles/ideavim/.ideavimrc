@@ -22,6 +22,7 @@ let g:WhichKey_FontFamily = "JetBrains Mono"
 let g:WhichKey_FontSize = 13
 let g:WhichKey_SortOrder = "by_key_prefix_first"
 let g:WhichKey_ShowTypedSequence = "false"
+let g:WhichKey_DefaultTriggers = ['<leader>', '[', ']']
 
 " Common settings
 set showmode
@@ -39,12 +40,6 @@ set visualbell
 set ideajoin
 set ideastatusicon=gray
 
-" Quick window navigation for split panes
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
-nmap <C-h> <C-w>h
-
 " Remaps
 inoremap <C-s> <Esc>:w<CR>
 nnoremap <C-s> :w<CR>
@@ -52,27 +47,29 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
-nnoremap n nzz
-nnoremap N Nzz
 vnoremap < <gv
 vnoremap > >gv
 xnoremap <leader>p "_dP
 noremap <leader>y "+y
 nnoremap <leader>Y "+Y
-noremap <leader>d "_d
 vnoremap gy ygv :Commentary<CR>
+let g:WhichKeyDesc_leader_y = "<leader>y "
+let g:WhichKeyDesc_leader_Y = "<leader>Y "
 
 " Actions
-nmap <leader><leader> <action>(GotoFile)
-nmap ]d <action>(GotoNextError)
-nmap [d <action>(GotoPreviousError)
+nmap <leader><leader> <Action>(GotoFile)
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
 nmap <leader>p <Action>(Back)
 nmap <leader>n <Action>(Forward)
-nmap <A-n> <action>(Generate)
+nmap <A-n> <Action>(Generate)
 nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
 nmap <C-m> <Action>(ToolWindowsGroup)
 imap <S-CR> <Action>(EditorCompleteStatement)
+let g:WhichKeyDesc_leader_leader = "<leader><leader> "
+let g:WhichKeyDesc_back = "<leader>p "
+let g:WhichKeyDesc_forward = "<leader>n "
 
 " Information
 nmap <leader>ie <Action>(ShowErrorDescription)
@@ -111,8 +108,8 @@ let g:WhichKeyDesc_window_split_back = "<leader>wb Back split"
 let g:WhichKeyDesc_window_split_forward = "<leader>wf Forward split"
 
 " Tab Management
-nmap H <action>(PreviousTab)
-nmap L <action>(NextTab)
+nmap H <Action>(PreviousTab)
+nmap L <Action>(NextTab)
 nmap <leader>tp <Action>(PinActiveEditorTab)
 nmap <leader>tx <Action>(CloseContent)
 nmap <leader>tX <Action>(CloseAllEditors)
@@ -190,11 +187,11 @@ let g:WhichKeyDesc_run_choose_configuration = "<leader>rC Choose Run Configurati
 
 " Debug
 nmap <leader>dx <Action>(Debug)
+nmap <leader>db <Action>(ToggleLineBreakpoint)
 nmap <leader>dc <Action>(ContextDebug)
 nmap <leader>dv <Action>(ViewBreakpoints)
 nmap <leader>de <Action>(EditBreakpoint)
 nmap <leader>dm <Action>(XDebugger.MuteBreakpoints)
-nmap <leader>dt <Action>(ToggleLineBreakpoint)
 nmap <leader>dC <Action>(RunToCursor)
 nmap <leader>di <Action>(StepInto)
 nmap <leader>do <Action>(StepOver)
@@ -203,11 +200,11 @@ nmap <leader>dR <Action>(EvaluateExpression)
 nmap <leader>dt <Action>(ActivateDebugToolWindow)
 let g:WhichKeyDesc_debug = "<leader>d Debug"
 let g:WhichKeyDesc_debug_execute = "<leader>dx Execute Debug"
+let g:WhichKeyDesc_debug_toggle_line_breakpoint = "<leader>db Toggle Line Breakpoint"
 let g:WhichKeyDesc_debug_context = "<leader>dc Context Debug"
 let g:WhichKeyDesc_debug_view_breakpoints = "<leader>dv View Breakpoints"
 let g:WhichKeyDesc_debug_edit_breakpoints = "<leader>de Edit Breakpoints"
 let g:WhichKeyDesc_debug_mute_breakpoints = "<leader>dm Mute Breakpoints"
-let g:WhichKeyDesc_debug_toggle_line_breakpoint = "<leader>dt Toggle Line Breakpoint"
 let g:WhichKeyDesc_debug_run_to_cursor = "<leader>dC Run to Cursor"
 let g:WhichKeyDesc_debug_step_into = "<leader>di Step Into"
 let g:WhichKeyDesc_debug_step_over = "<leader>do Step Over"
@@ -218,7 +215,7 @@ let g:WhichKeyDesc_debug_activate_tool_window = "<leader>dt Activate Debug Tool 
 " Refactoring and Code Improvement
 map <leader>ca <Action>(ShowIntentionActions)
 map <leader>cr <Action>(RenameElement)
-map <leader>cR <action>(Refactorings.QuickListPopupAction)
+map <leader>ct <Action>(Refactorings.QuickListPopupAction)
 map <leader>cc <Action>(ChangeSignature)
 map <leader>cv <Action>(IntroduceVariable)
 map <leader>ci <Action>(Inline)

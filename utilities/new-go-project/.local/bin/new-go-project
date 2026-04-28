@@ -4,21 +4,29 @@ pararser() {
   # Define default values
   name=${name:-""}
   path=${path:-""}
+  positional=()
 
   # Assign the values given by the user
   while [ $# -gt 0 ]; do
     if [[ $1 == "--help" ]]; then
       echo " Usage:"
-      echo "   --name         project name (required | ex: myapp)"
+      echo "   new-go-project [name] project name (required)"
+      echo "   --name         project name (optional if positional is used | ex: myapp)"
       echo "   --path         project path (optional | ex: ~/Projects/work | default: ~/Projects/personal)"
       exit
     elif [[ $1 == *"--"* ]]; then
       param="${1/--/}"
       declare -g "$param"="$2"
+      shift
+    else
+      positional+=("$1")
     fi
     shift
   done
 
+  if [[ -z "$name" ]] && [[ ${#positional[@]} -gt 0 ]]; then
+    name="${positional[0]}"
+  fi
 }
 
 pararser "$@"

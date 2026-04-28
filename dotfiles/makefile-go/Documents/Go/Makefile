@@ -35,6 +35,8 @@ MAIN_PACKAGE ?= github.com/dorudumitru/$(APP_NAME)
 # The path to the folder where main.go resides.
 # Example: ./cmd/my-app
 MAIN_PACKAGE_PATH ?= .
+# Lint with golangci-lint? yes/no
+USE_GOLANGCI_LINT ?= yes
 
 # Use if the app requires flags (ex: -u username -p password)
 # This is the default, but can be overridden on the command line:
@@ -69,6 +71,9 @@ ifneq ($(filter windows darwin linux,$(OS)),$(OS))
 endif
 ifneq ($(filter windows darwin linux,$(GOOS)),$(GOOS))
 	$(error GOOS is not supported)
+endif
+ifneq ($(filter yes no,$(USE_GOLANGCI_LINT)),${USE_GOLANGCI_LINT})
+	$(error USE_GOLANGCI_LINT must be yes or no)
 endif
 
 # ==================================================================================== #
@@ -114,7 +119,7 @@ config:
 	echo "GO := $${go_val:-${GO}}" > build.env
 
 	@echo -e "\nLocal development OS."
-	@echo "Accepted Values: windows, darwin, linux"
+	@echo "Accepted Values: windows/darwin/linux"
 	@read -p "Enter local development OS [${OS}]: " os_val; \
 	echo "OS := $${os_val:-${OS}}" >> build.env
 
@@ -131,6 +136,10 @@ config:
 	@read -p "Enter path to main.go [${MAIN_PACKAGE_PATH}]: " main_path_val; \
 	echo "MAIN_PACKAGE_PATH := $${main_path_val:-${MAIN_PACKAGE_PATH}}" >> build.env
 
+	@echo -e "\nLint with golangci-lint?"
+	@read -p "Accepted values: yes/no [${USE_GOLANGCI_LINT}]: " lint_val; \
+	echo "USE_GOLANGCI_LINT := $${lint_val:-${USE_GOLANGCI_LINT}}" >> build.env
+
 	@echo -e "\nUse if the app requires flags (ex: -u username -p password)."
 	@echo "Can be left blank, or can be overridden on the command line:"
 	@echo "make run ARGS=\"-u user -p pass\""
@@ -138,7 +147,7 @@ config:
 	echo "ARGS := $${args_val:-${ARGS}}" >> build.env
 
 	@echo -e "\nProduction build OS."
-	@echo "Accepted Values: windows, darwin, linux"
+	@echo "Accepted Values: windows/darwin/linux"
 	@read -p "Enter production build OS [${GOOS}]: " goos_val; \
 	echo "GOOS := $${goos_val:-${GOOS}}" >> build.env
 
@@ -151,8 +160,13 @@ config:
 
 ## init: initialize the project (runs config and one-time setup)
 .PHONY: init
-init: config go/version/sync
-	@if ! command -v "golangci-lint" &> /dev/null; then \
+init:
+	@$(MAKE) config
+	@$(MAKE) init/after-config
+
+.PHONY: init/after-config
+init/after-config: go/version/sync
+	@if [ "${USE_GOLANGCI_LINT}" = "yes" ] && ! command -v "golangci-lint" &> /dev/null; then \
 		echo "Please install 'golangci-lint' from https://golangci-lint.run/docs/welcome/install/ to continue."; \
 		exit 1; \
 	fi
@@ -167,10 +181,15 @@ init: config go/version/sync
 	@grep -qxF "build.env" .gitignore || echo "build.env" >> .gitignore
 	@echo -e "\nInitializing Go module..."
 	@if [ ! -f go.mod ]; then ${GO} mod init ${MAIN_PACKAGE}; fi
+	@echo -e "package path: ${MAIN_PACKAGE_PATH}"
 	@mkdir -p ${MAIN_PACKAGE_PATH}
 	@if [ ! -f "${MAIN_PACKAGE_PATH}/main.go" ]; then touch ${MAIN_PACKAGE_PATH}/main.go; fi
-	@echo -e "\nDownloading golangci-lint config..."
-	@if [ ! -f .golangci.yml ]; then curl -s -O https://gist.githubusercontent.com/maratori/47a4d00457a92aa426dbd48a18776322/raw/ae78780d0653027c1c83d3a705cfda028afc1a5b/.golangci.yml; fi
+	@if [ "${USE_GOLANGCI_LINT}" = "yes" ]; then \
+		echo -e "\nDownloading golangci-lint config..."; \
+		if [ ! -f .golangci.yml ]; then curl -s -O https://gist.githubusercontent.com/maratori/47a4d00457a92aa426dbd48a18776322/raw/ae78780d0653027c1c83d3a705cfda028afc1a5b/.golangci.yml; fi; \
+	else \
+		echo -e "\nSkipping golangci-lint setup (disabled)."; \
+	fi
 	@echo -e "\nDone."
 	
 # ==================================================================================== #
@@ -180,8 +199,16 @@ init: config go/version/sync
 ## lint: run golangci-lint
 .PHONY: lint
 lint:
-	@echo "Linting code..."
-	@golangci-lint run
+	@if [ "${USE_GOLANGCI_LINT}" = "yes" ]; then \
+		echo "Linting code..."; \
+		if ! command -v "golangci-lint" &> /dev/null; then \
+			echo "Please install 'golangci-lint' from https://golangci-lint.run/docs/welcome/install/ to continue."; \
+			exit 1; \
+		fi; \
+		golangci-lint run; \
+	else \
+		echo "Skipping lint (USE_GOLANGCI_LINT=${USE_GOLANGCI_LINT})."; \
+	fi
 
 ## tidy: format code and tidy modfile
 .PHONY: tidy
@@ -274,5 +301,3 @@ prod: clean lint tidy audit no-dirty
 .PHONY: deploy
 deploy:
 	# include deployment steps here...
-
-

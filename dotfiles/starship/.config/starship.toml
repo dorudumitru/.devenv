@@ -8,9 +8,9 @@ palette = "catppuccin_macchiato"
 # Starship modules
 [character]
 # Note the use of Catppuccin color 'peach'
-success_symbol = "[❯](peach)"
-error_symbol = "[❯](peach)"
-vimcmd_symbol = "[❮](green)" # For use with zsh-vi-mode
+success_symbol = "[❯](bold peach)"
+error_symbol = "[❯](bold peach)"
+vimcmd_symbol = "[❮](bold green)" # For use with zsh-vi-mode
 
 # Palette definitions
 [palettes.catppuccin_macchiato]
@@ -114,14 +114,21 @@ symbol = " "
 symbol = " "
 style = "red"
 
+[kotlin]
+symbol = " "
+style = "mauve"
+
+[gradle]
+symbol = " "
+
 [julia]
 symbol = " "
 
 [memory_usage]
-symbol = " "
+symbol = " "
 
 [nim]
-symbol = " "
+symbol = " "
 
 [nix_shell]
 symbol = " "
@@ -151,4 +158,4 @@ symbol = " "
 symbol = " "
 
 [swift]
-symbol = "ﯣ "
+symbol = " "

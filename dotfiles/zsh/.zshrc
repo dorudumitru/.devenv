@@ -50,7 +50,6 @@ alias uao='unzip-and-open'
 alias tssh='tmux-ssh'
 alias lg='lazygit'
 alias fp='. project-finder'
-alias cato='cato-sdp'
 alias yz='yazi'
 alias oc='opencode'
 alias cc='claude'
@@ -82,11 +81,6 @@ export NVM_DIR="$HOME/.nvm"
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/go/bin
-
-# .NET
-export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
-export DOTNET_CLI_TELEMETRY_OPTOUT=true
 
 # sdkman
 export SDKMAN_DIR="$HOME/.sdkman"

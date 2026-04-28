@@ -12,11 +12,11 @@
 
   // FONT
   "editor.fontFamily": "MonoLisaa SemiBold, JetBrains Mono SemiBold, Symbols Nerd Font",
-  "editor.fontSize": 14,
+  "editor.fontSize": 15,
   "editor.lineHeight": 1.5,
   "editor.fontLigatures": "true",
   "editor.semanticHighlighting.enabled": true,
-  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontSize": 15,
   "terminal.integrated.lineHeight": 1.1,
   "terminal.integrated.minimumContrastRatio": 1,
   // If permission is needed
@@ -65,6 +65,11 @@
   },
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml",
+  },
+  "go.toolsGopath": "${env:HOME}/.go",
+  "go.toolsEnvVars": {
+    "GOPATH": "${env:HOME}/.go",
+    "GOMODCACHE": "${env:HOME}/.go/pkg/mod",
   },
   "go.toolsManagement.autoUpdate": true,
   "go.diagnostic.vulncheck": "Imports",
