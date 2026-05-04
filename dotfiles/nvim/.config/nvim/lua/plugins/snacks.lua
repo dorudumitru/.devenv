@@ -26,7 +26,6 @@ return {
             ".git",
             ".project",
             "Makefile",
-            "pom.xml",
           },
         },
       },
