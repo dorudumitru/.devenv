@@ -3,7 +3,7 @@ export EDITOR=nvim
 export MANPAGER="nvim +Man!"
 export PATH=$PATH:$HOME/.local/bin
 export ZSH="$HOME/.oh-my-zsh"
-# export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
+export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
 
 ZSH_THEME="robbyrussell"
 ZSH_DISABLE_COMPFIX=true
@@ -27,13 +27,13 @@ function tmux-ssh() {
 
 function git-ssh() {
   if [[ "$1" == "work" ]]; then
-    git config core.sshCommand "ssh -i $HOME/.ssh/work.pub"
+    git config core.sshCommand 'ssh -o IdentitiesOnly=yes -o IdentityFile=$HOME/.ssh/work.pub'
     echo "Successfully configured \"Work\" ssh key for current repository"
   elif [[ "$1" == "hh" ]]; then
-    git config core.sshCommand "ssh -i $HOME/.ssh/hh_enterprise.pub"
+    git config core.sshCommand 'ssh -o IdentitiesOnly=yes -o IdentityFile=$HOME/.ssh/hh_enterprise.pub'
     echo "Successfully configured \"HH Enterprise\" ssh key for current repository"
   elif [[ "$1" == "personal" ]]; then
-    git config core.sshCommand "ssh -i $HOME/.ssh/personal.pub"
+    git config core.sshCommand 'ssh -o IdentitiesOnly=yes -o IdentityFile=$HOME/.ssh/personal.pub'
     echo "Successfully configured \"Personal\" ssh key for current repository"
   else
     echo "Argument required: work | hh | personal"
