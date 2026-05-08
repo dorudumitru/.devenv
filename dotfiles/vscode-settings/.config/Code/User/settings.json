@@ -149,9 +149,9 @@
   "files.associations": {
     ".env*": "dotenv",
   },
-  "dotenv.enableAutocloaking": false,
   "breadcrumbs.enabled": false,
   "terminal.integrated.cursorBlinking": true,
+  "sonarlint.pathToNodeExecutable": "${env:HOME}/.nvm/versions/node/v24.14.0/bin/node",
   "redHatDependencyAnalytics.exclude": [
     "**/.git/**",
     "**/node_modules/**",
@@ -167,18 +167,14 @@
   "redhat.telemetry.enabled": false,
   "rest-client.enableTelemetry": false,
   "partialDiff.enableTelemetry": false,
-  "dotnetAcquisitionExtension.enableTelemetry": false,
 
   // AI
   "github.copilot.nextEditSuggestions.enabled": true,
   "claudeCode.preferredLocation": "panel",
   "chat.viewSessions.orientation": "stacked",
-  "chat.customAgentInSubagent.enabled": true,
   "chat.mcp.gallery.enabled": true,
 
   // OTHER
-  "applicationRegistrations.useEventualConsistency": false,
-  "applicationRegistrations.applicationListView": "Owned Applications",
   "makefile.configureOnOpen": false,
   "editor.tokenColorCustomizations": {
     "textMateRules": [],
