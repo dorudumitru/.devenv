@@ -164,7 +164,8 @@ let g:WhichKeyDesc_file_opt_replace_in_path = "<leader>fp Replace In Path"
 
 " Run and Test Management
 nmap <leader>rm <Action>(RunMenu)
-nmap <leader>rd <Action>(Run)
+nmap <leader>rx <Action>(Run)
+nmap <leader>rd <Action>(Debug)
 nmap <leader>rn <Action>(RunClass)
 nmap <leader>rc <Action>(ContextRun)
 nmap <leader>rr <Action>(Rerun)
@@ -175,7 +176,8 @@ nmap <leader>rs <Action>(Stop)
 nmap <leader>rC <Action>(ChooseRunConfiguration)
 let g:WhichKeyDesc_run = "<leader>r Run"
 let g:WhichKeyDesc_run_menu = "<leader>rm Run Menu"
-let g:WhichKeyDesc_run_default = "<leader>rd Run Default Configuration"
+let g:WhichKeyDesc_run_default = "<leader>rx Run Default Configuration"
+let g:WhichKeyDesc_run_debug = "<leader>rd Run Debug"
 let g:WhichKeyDesc_run_class = "<leader>rn Run Class"
 let g:WhichKeyDesc_run_context = "<leader>rc Context Run"
 let g:WhichKeyDesc_run_rerun = "<leader>rr Rerun"

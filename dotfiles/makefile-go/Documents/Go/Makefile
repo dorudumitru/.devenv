@@ -224,7 +224,7 @@ audit:
 	@${GO} mod verify
 	@${GO} vet ./...
 	@${GO} run golang.org/x/vuln/cmd/govulncheck@latest ./...
-	@echo "Running tests with race detector..."
+	@echo -e "Running tests with race detector...\n"
 	@${GO} test -race -buildvcs -vet=off ./...
 
 # ==================================================================================== #
@@ -234,7 +234,7 @@ audit:
 ## test: run all unit tests
 .PHONY: test
 test:
-	@echo "Running tests..."
+	@echo -e "Running tests...\n"
 	@${GO} test -v -race -buildvcs ./...
 
 ## test/integration: run all tests including integration
@@ -245,7 +245,7 @@ test/integration:
 ## test/cover: run all tests and display coverage
 .PHONY: test/cover
 test/cover:
-	@echo "Running tests and generating coverage report..."
+	@echo -e "Running tests and generating coverage report...\n"
 	@${GO} test -v -race -buildvcs -coverprofile=/tmp/coverage.out ./...
 	@${GO} tool cover -html=/tmp/coverage.out
 
@@ -260,13 +260,13 @@ build:
 ## run: run the  application
 .PHONY: run
 run: lint build
-	@echo "Running application..."
+	@echo -e "Running application...\n"
 	@$(DEV_BINARY_PATH) ${ARGS}
 
 ## run/no-lint: run the  application without linting
 .PHONY: run/no-lint
 run-no-lint: build
-	@echo "Running application (no-lint)..."
+	@echo -e "Running application (no-lint)...\n"
 	@$(DEV_BINARY_PATH) ${ARGS}
 
 ## watch: run the application with reloading on file changes

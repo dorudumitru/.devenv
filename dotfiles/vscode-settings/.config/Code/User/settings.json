@@ -1,5 +1,6 @@
 {
   // THEME
+  "workbench.editor.useModal": "off",
   "workbench.startupEditor": "none",
   "workbench.settings.editor": "json",
   "workbench.secondarySideBar.defaultVisibility": "hidden",
@@ -85,7 +86,7 @@
     "editor.defaultFormatter": "golang.go",
     "editor.tabSize": 4,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "always",
+      "source.organizeImports": "explicit",
     },
   },
   "[go.mod]": {
@@ -101,12 +102,16 @@
   "[java]": {
     "editor.defaultFormatter": "josevseb.google-java-format-for-vs-code",
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "always",
+      "source.organizeImports": "explicit",
     },
   },
-  "[csharp]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "csharpier.csharpier-vscode",
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit",
+    },
   },
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml",
@@ -114,7 +119,7 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "[typescript]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "always",
+      "source.organizeImports": "explicit",
     },
   },
   "typescript.preferences.importModuleSpecifier": "relative",
@@ -125,7 +130,7 @@
   "editor.linkedEditing": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "always",
+    "source.organizeImports": "explicit",
   },
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
@@ -151,7 +156,7 @@
   },
   "breadcrumbs.enabled": false,
   "terminal.integrated.cursorBlinking": true,
-  "sonarlint.pathToNodeExecutable": "${env:HOME}/.nvm/versions/node/v24.14.0/bin/node",
+  "sonarlint.pathToNodeExecutable": "/home/dorudumitru/.nvm/versions/node/v24.14.0/bin/node",
   "redHatDependencyAnalytics.exclude": [
     "**/.git/**",
     "**/node_modules/**",

@@ -1,7 +1,7 @@
 return {
   "https://gitlab.com/schrieveslaach/sonarlint.nvim.git",
   lazy = true,
-  ft = { "typescript", "javascript", "go" },
+  ft = { "typescript", "javascript", "go", "python" },
   config = function()
     require("sonarlint").setup({
       server = {
@@ -11,12 +11,14 @@ return {
           "-analyzers",
           vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjs.jar"),
           vim.fn.expand("$MASON/share/sonarlint-analyzers/sonargo.jar"),
+          vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarpython.jar"),
         },
       },
       filetypes = {
         "typescript",
         "javascript",
         "go",
+        "python",
       },
     })
   end,
