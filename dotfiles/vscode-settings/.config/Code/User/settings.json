@@ -12,7 +12,7 @@
   "symbols.hidesExplorerArrows": false,
 
   // FONT
-  "editor.fontFamily": "Lilex, JetBrains Mono SemiBold, Symbols Nerd Font",
+  "editor.fontFamily": "Lilex, MonoLisa Variable, JetBrains Mono SemiBold, Symbols Nerd Font",
   "editor.fontWeight": "500",
   "editor.fontSize": 15,
   "editor.lineHeight": 1.4,
@@ -119,13 +119,12 @@
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml",
   },
-  "typescript.updateImportsOnFileMove.enabled": "always",
+  "js/ts.preferences.importModuleSpecifier": "relative",
   "[typescript]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit",
     },
   },
-  "typescript.preferences.importModuleSpecifier": "relative",
   "eslint.validate": ["javascript", "javascriptreact", "svelte", "typescript", "typescriptreact"],
   "prettier.printWidth": 120,
 
@@ -159,6 +158,8 @@
   },
   "breadcrumbs.enabled": false,
   "terminal.integrated.cursorBlinking": true,
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.saveFileBeforeRun": true,
   "sonarlint.pathToNodeExecutable": "/home/dorudumitru/.nvm/versions/node/v24.14.0/bin/node",
   "redHatDependencyAnalytics.exclude": [
     "**/.git/**",
@@ -177,10 +178,9 @@
   "partialDiff.enableTelemetry": false,
 
   // AI
-  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.nextEditSuggestions.enabled": false,
   "claudeCode.preferredLocation": "panel",
   "chat.viewSessions.orientation": "stacked",
-  "chat.mcp.gallery.enabled": true,
 
   // OTHER
   "makefile.configureOnOpen": false,
@@ -193,5 +193,6 @@
     "plaintext": false,
     "markdown": false,
     "scminput": false,
+    "go": false,
   },
 }
