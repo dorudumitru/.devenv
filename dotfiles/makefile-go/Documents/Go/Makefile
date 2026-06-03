@@ -161,8 +161,8 @@ config:
 ## init: initialize the project (runs config and one-time setup)
 .PHONY: init
 init:
-	@$(MAKE) config
-	@$(MAKE) init/after-config
+	@$(MAKE) --no-print-directory config
+	@$(MAKE) --no-print-directory init/after-config
 
 .PHONY: init/after-config
 init/after-config: go/version/sync
@@ -185,8 +185,8 @@ init/after-config: go/version/sync
 	@mkdir -p ${MAIN_PACKAGE_PATH}
 	@if [ ! -f "${MAIN_PACKAGE_PATH}/main.go" ]; then touch ${MAIN_PACKAGE_PATH}/main.go; fi
 	@if [ "${USE_GOLANGCI_LINT}" = "yes" ]; then \
-		echo -e "\nDownloading golangci-lint config..."; \
-		if [ ! -f .golangci.yml ]; then curl -s -O https://gist.githubusercontent.com/maratori/47a4d00457a92aa426dbd48a18776322/raw/ae78780d0653027c1c83d3a705cfda028afc1a5b/.golangci.yml; fi; \
+		echo -e "\nImporting golangci-lint config..."; \
+		if [ ! -f .golangci.yml ]; then cp ~/Documents/Go/.golangci.yml .; fi; \
 	else \
 		echo -e "\nSkipping golangci-lint setup (disabled)."; \
 	fi
