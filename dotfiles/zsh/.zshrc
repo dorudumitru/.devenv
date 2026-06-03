@@ -40,6 +40,20 @@ function git-ssh() {
   fi
 }
 
+function kill-port() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: kill-port <port>"
+    return 1
+  fi
+
+  if ! lsof -i :"$1" -t > /dev/null; then
+    echo "No process found running on port $1"
+    return 0
+  fi
+
+  lsof -i :"$1" -t | xargs kill -9
+}
+
 # aliases
 alias ls='eza --icons=auto --group-directories-first'
 alias cat='bat'

@@ -23,3 +23,15 @@ vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Go to left w
 vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Go to down window" })
 vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Go to up window" })
 vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Go to right window" })
+
+vim.keymap.set("n", "<leader>ac", function()
+  local filter = { bufnr = 0 }
+  local enabled = not vim.lsp.inline_completion.is_enabled(filter)
+
+  vim.lsp.inline_completion.enable(enabled, filter)
+
+  vim.notify(
+    "Copilot inline completion " .. (enabled and "enabled" or "disabled"),
+    enabled and vim.log.levels.INFO or vim.log.levels.WARN
+  )
+end, { desc = "Toggle Copilot Inline Completion" })

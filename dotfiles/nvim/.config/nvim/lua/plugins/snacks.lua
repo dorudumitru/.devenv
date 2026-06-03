@@ -19,13 +19,16 @@ return {
           max_depth = 3,
           dev = {
             "~/Projects/personal",
-            "~/Projects/hh",
-            "~/Projects/ibm",
+            "~/Projects/work",
           },
           patterns = {
             ".git",
             ".project",
             "Makefile",
+            "pom.xml",
+            "gradle.build",
+            "Cargo.toml",
+            "go.mod",
           },
         },
       },
