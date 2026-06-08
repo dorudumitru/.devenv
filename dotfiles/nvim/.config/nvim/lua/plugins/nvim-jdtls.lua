@@ -3,6 +3,11 @@ return {
   opts = function(_, opts)
     opts.settings = opts.settings or {}
     opts.settings.java = opts.settings.java or {}
+    opts.settings.java = {
+      configuration = {
+        updateBuildConfiguration = "automatic",
+      },
+    }
 
     -- opts.settings.java.inlayHints = {
     --   parameterNames = { enabled = "none" },
