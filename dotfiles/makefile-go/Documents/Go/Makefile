@@ -156,12 +156,34 @@ config:
 	@read -p "Enter production build ARCH (e.g., amd64, arm64) [${GOARCH}]: " goarch_val; \
 	echo "GOARCH := $${goarch_val:-${GOARCH}}" >> build.env
 
-	@echo -e "\nConfiguration saved to build.env"
+	@echo -e "\nConfiguration saved to build.env\n\n"
+
+## config/defaults: save default project variables to build.env without prompting
+.PHONY: config/defaults
+config/defaults:
+	@{ \
+		echo "GO := ${GO}"; \
+		echo "OS := ${OS}"; \
+		echo "ARCH := ${ARCH}"; \
+		echo "MAIN_PACKAGE := ${MAIN_PACKAGE}"; \
+		echo "MAIN_PACKAGE_PATH := ${MAIN_PACKAGE_PATH}"; \
+		echo "USE_GOLANGCI_LINT := ${USE_GOLANGCI_LINT}"; \
+		echo "ARGS := ${ARGS}"; \
+		echo "GOOS := ${GOOS}"; \
+		echo "GOARCH := ${GOARCH}"; \
+	} > build.env
+	@echo -e "Configuration saved to build.env\n"
 
 ## init: initialize the project (runs config and one-time setup)
 .PHONY: init
 init:
 	@$(MAKE) --no-print-directory config
+	@$(MAKE) --no-print-directory init/after-config
+
+## init/defaults: initialize the project using all default values
+.PHONY: init/defaults
+init/defaults:
+	@$(MAKE) --no-print-directory config/defaults
 	@$(MAKE) --no-print-directory init/after-config
 
 .PHONY: init/after-config
@@ -170,22 +192,20 @@ init/after-config: go/version/sync
 		echo "Please install 'golangci-lint' from https://golangci-lint.run/docs/welcome/install/ to continue."; \
 		exit 1; \
 	fi
-	@echo "Initializing project..."
+	@echo -e "Initializing project...\n"
 	@echo "Project name: ${APP_NAME}"
-	@echo -e "\nInitializing git repository..."
 	@if [ ! -d .git ]; then git init; fi
 	@touch .gitignore
 	@grep -qxF "dist/" .gitignore || echo "dist/" >> .gitignore
 	@grep -qxF ".idea/" .gitignore || echo ".idea/" >> .gitignore
 	@grep -qxF ".vscode/" .gitignore || echo ".vscode/" >> .gitignore
 	@grep -qxF "build.env" .gitignore || echo "build.env" >> .gitignore
-	@echo -e "\nInitializing Go module..."
 	@if [ ! -f go.mod ]; then ${GO} mod init ${MAIN_PACKAGE}; fi
-	@echo -e "package path: ${MAIN_PACKAGE_PATH}"
+	@echo -e "Package path: ${MAIN_PACKAGE_PATH}"
 	@mkdir -p ${MAIN_PACKAGE_PATH}
 	@if [ ! -f "${MAIN_PACKAGE_PATH}/main.go" ]; then touch ${MAIN_PACKAGE_PATH}/main.go; fi
 	@if [ "${USE_GOLANGCI_LINT}" = "yes" ]; then \
-		echo -e "\nImporting golangci-lint config..."; \
+		echo "Importing golangci-lint config..."; \
 		if [ ! -f .golangci.yml ]; then cp ~/Documents/Go/.golangci.yml .; fi; \
 	else \
 		echo -e "\nSkipping golangci-lint setup (disabled)."; \
@@ -265,7 +285,7 @@ run: lint build
 
 ## run/no-lint: run the  application without linting
 .PHONY: run/no-lint
-run-no-lint: build
+run/no-lint: build
 	@echo -e "Running application (no-lint)...\n"
 	@$(DEV_BINARY_PATH) ${ARGS}
 
