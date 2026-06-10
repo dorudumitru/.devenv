@@ -31,6 +31,9 @@
 
   // VIM SETTINGS
   "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<space>": false,
+  },
   "vim.highlightedyank.enable": true,
   "vim.useSystemClipboard": false,
   "extensions.experimental.affinity": {
