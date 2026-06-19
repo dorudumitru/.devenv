@@ -77,6 +77,7 @@ symbol = " "
 
 [azure]
 symbol = " "
+disabled = false
 
 [battery]
 full_symbol = "󰁹 "
@@ -96,6 +97,7 @@ symbol = " "
 
 [cpp]
 symbol = " "
+disabled = false
 
 [cmake]
 symbol = " "
@@ -120,6 +122,7 @@ symbol = " "
 
 [direnv]
 symbol = " "
+disabled = false
 
 [directory]
 read_only = " 󰌾 "
@@ -205,12 +208,14 @@ style = "mauve"
 
 [kubernetes]
 symbol = "󱃾 "
+disabled = false
 
 [lua]
 symbol = " "
 
 [maven]
 symbol = " "
+style = "peach"
 
 [memory_usage]
 symbol = "󰍛 "
