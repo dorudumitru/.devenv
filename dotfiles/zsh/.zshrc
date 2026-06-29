@@ -70,6 +70,8 @@ alias cc='claude'
 alias cx='codex'
 alias visualvm='visualvm --fontsize 20'
 alias stremio="flatpak run com.stremio.Stremio"
+alias zb="zmk-battery.py"
+alias mir='sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak && rate-mirrors --allow-root --protocol https arch | grep -v '^#' | sudo tee /etc/pacman.d/mirrorlist'
 
 # open tmux sessionizer with <C-f>
 bindkey -s "^f" "ts\n"

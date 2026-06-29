@@ -5,6 +5,7 @@
 let mapleader=" "
 
 " Plugins
+set VimEverywhere
 set argtextobj
 set functiontextobj
 set NERDTree
