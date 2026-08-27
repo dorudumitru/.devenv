@@ -21,8 +21,7 @@ gui:
       - "#eed49f"
   authorColors:
     "*": "#b7bdf8"
-
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --side-by-side --features=catppuccin-macchiato
+      command: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}" --side-by-side --features=catppuccin-macchiato

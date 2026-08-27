@@ -31,3 +31,9 @@ vim.filetype.add({
     [".env.*"] = "sh",
   },
 })
+
+vim.filetype.add({
+  extension = {
+    gohtml = "gotmpl",
+  },
+})

@@ -201,4 +201,6 @@
     "scminput": false,
     "go": false,
   },
+  "yaml.disableSchemaDetection": [],
+  "docker.extension.enableComposeLanguageServer": false,
 }

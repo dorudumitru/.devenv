@@ -6,6 +6,7 @@ return {
         settings = {
           gopls = {
             staticcheck = false,
+            templateExtensions = { "gohtml", "gotmpl", "tmpl" },
           },
         },
       },

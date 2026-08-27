@@ -247,6 +247,12 @@ audit:
 	@echo -e "Running tests with race detector...\n"
 	@${GO} test -race -buildvcs -vet=off ./...
 
+## upgradable: check direct dependencies for newer versions
+.PHONY: upgradable
+upgradable:
+	@echo "Check direct dependencies for newer versions available..."
+	@${GO} list -u -f '{{if (and (not (or .Main .Indirect)) .Update)}}{{.Path}}: {{.Version}} -> {{.Update.Version}}{{end}}' -m all
+
 # ==================================================================================== #
 # DEVELOPMENT
 # ==================================================================================== #

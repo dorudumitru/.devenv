@@ -7,6 +7,9 @@ return {
     float = {
       transparent = true,
     },
+    integrations = {
+      rainbow_delimiters = true,
+    },
     styles = {
       comments = { "italic" },
       conditionals = { "italic" },
