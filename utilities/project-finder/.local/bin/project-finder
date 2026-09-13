@@ -1,28 +1,39 @@
 #!/usr/bin/env bash
 
+sanity_check() {
+  for cmd in fzf fd; do
+    if ! command -v "$cmd" >/dev/null 2>&1; then
+      echo "$cmd is not installed. Please install it first."
+      return 1
+    fi
+  done
+}
+
+sanity_check || return 1
+
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
   selected=$(
     fd . ~/Projects \
-      --type d \
+      -t d \
       --min-depth 1 \
       --max-depth 3 \
       --hidden \
-      --exclude .git \
-      --exclude node_modules \
-      --exclude .next \
-      --exclude dist \
-      --exclude build \
-      --exclude coverage \
-      --exclude .turbo \
-      --exclude .cache \
-      --exclude target \
-      --exclude .venv \
-      --exclude venv \
-      --exclude __pycache__ \
-      --exclude .idea \
-      --exclude .vscode \
+      -E .git \
+      -E node_modules \
+      -E .next \
+      -E dist \
+      -E build \
+      -E coverage \
+      -E .turbo \
+      -E .cache \
+      -E target \
+      -E .venv \
+      -E venv \
+      -E __pycache__ \
+      -E .idea \
+      -E .vscode \
       2>/dev/null | fzf
   )
 fi
