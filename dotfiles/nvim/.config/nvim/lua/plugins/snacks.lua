@@ -23,10 +23,7 @@ return {
           },
           patterns = {
             ".git",
-            ".project",
             "Makefile",
-            "pom.xml",
-            "gradle.build",
             "Cargo.toml",
             "go.mod",
           },

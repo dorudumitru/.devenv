@@ -206,7 +206,7 @@ init/after-config: go/version/sync
 	@if [ ! -f "${MAIN_PACKAGE_PATH}/main.go" ]; then touch ${MAIN_PACKAGE_PATH}/main.go; fi
 	@if [ "${USE_GOLANGCI_LINT}" = "yes" ]; then \
 		echo "Importing golangci-lint config..."; \
-		if [ ! -f .golangci.yml ]; then cp ~/Documents/Go/.golangci.yml .; fi; \
+		if [ ! -f .golangci.yaml ]; then cp ~/Documents/Go/.golangci.yaml .; fi; \
 	else \
 		echo -e "\nSkipping golangci-lint setup (disabled)."; \
 	fi
